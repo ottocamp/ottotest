@@ -56,12 +56,6 @@
              
     }
 
-    #logo{
-        position: absolute;
-        top:20px;
-        left:10px;
-    }
- 
     #nav{
        margin-top: 12px;
     }
@@ -83,6 +77,19 @@
 		background: rgb(53, 53, 53);
 		 height: 70px;
 	}
+	
+	#logo{	
+		
+		height: 70px;
+	}
+	
+	#logo_box{
+		position:absolute;
+		margin:0px;
+		padding:0px;	
+		left:18px;
+	}
+	
 
     </style>
 
@@ -96,9 +103,9 @@
           	<header class="top_panel_wrap">
             <div class="menu_main_wrap logo_left with_text" id="test">
                <div class="menu_content_wrap clearfix" id="content">
-                  <div class="logo">
+                  <div class="logo" id="logo_box">
                      <a href="main2.html">
-                        <img src="<%= request.getContextPath() %>/resources/top_nav/images/11.png" width="200px" height="80px" id="logo">
+                        <img src="<%= request.getContextPath() %>/resources/top_nav/images/11.png" width="200px" id="logo">
                      </a>
                   </div>
                   <div class="login_wrap" id="login">
