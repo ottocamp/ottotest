@@ -8,16 +8,23 @@
 		<!-- jqury cdn -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		
-        <meta charset="utf-8" />
-        <title>SimpleAdmin - Responsive Admin Dashboard Template</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
-        <meta content="Coderthemes" name="author" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <link rel="shortcut icon" href="<%= request.getContextPath() %>/resources/assets/images/favicon.ico">
 
-		 <!-- Plugins css-->
+        <!-- DataTables -->
+        <link href="<%= request.getContextPath() %>/resources/assets/plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+        <link href="<%= request.getContextPath() %>/resources/assets/plugins/datatables/buttons.bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="<%= request.getContextPath() %>/resources/assets/plugins/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="<%= request.getContextPath() %>/resources/assets/plugins/datatables/scroller.bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="<%= request.getContextPath() %>/resources/assets/plugins/datatables/dataTables.colVis.css" rel="stylesheet" type="text/css">
+        <link href="<%= request.getContextPath() %>/resources/assets/plugins/datatables/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="<%= request.getContextPath() %>/resources/assets/plugins/datatables/fixedColumns.dataTables.min.css" rel="stylesheet" type="text/css">
+
+
+		
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <!-- Plugins css-->
         <link href="<%= request.getContextPath() %>/resources/assets/plugins/bootstrap-tagsinput/css/bootstrap-tagsinput.css" rel="stylesheet" />
         <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/assets/plugins/switchery/switchery.min.css">
         <link href="<%= request.getContextPath() %>/resources/assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
@@ -29,6 +36,7 @@
         <!-- Summernote css -->
         <link href="<%= request.getContextPath() %>/resources/assets/plugins/summernote/summernote.css" rel="stylesheet" />
 
+
         <!-- Bootstrap core CSS -->
         <link href="<%= request.getContextPath() %>/resources/assets/css/bootstrap.min.css" rel="stylesheet">
         <!-- MetisMenu CSS -->
@@ -37,10 +45,20 @@
         <link href="<%= request.getContextPath() %>/resources/assets/css/icons.css" rel="stylesheet">
         <!-- Custom styles for this template -->
         <link href="<%= request.getContextPath() %>/resources/assets/css/style.css" rel="stylesheet">
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
 
-</head>
-<body>
+
+<style type="text/css">@keyframes fadeInOpacity{0%{opacity:0}to{opacity:1}}:hover>*>.fbvd--wrapper{animation-name:fadeInOpacity;animation-duration:.3s;opacity:1}.fbvd--wrapper{position:absolute;top:10px;left:10px;opacity:0;text-align:center;margin:0;z-index:5}.fbvd--wrapper a{background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbD0iIzRiNGY1NiIgZD0iTTggMTUuNWw3LjUtNy41aC00LjV2LThoLTZ2OGgtNC41eiI+PC9wYXRoPjwvc3ZnPg==) no-repeat 3px 4.55px; background-color: #fff; display:inline-block;font:700 14px Helvetica,Arial,sans-serif;color:#4b4f56;text-decoration:none;vertical-align:middle;padding:0px 8px 0px;margin-right:8px;border-radius:2px; line-height: 22px; padding-left:19px; border: 1px solid #e7e7e7; background-size: 13px}.fbvd--wrapper a:last-child{margin-right:0}.fbvd--wrapper a:hover{text-decoration:none}.fbvd--wrapper a:focus{box-shadow:0 0 1px 2px rgba(88,144,255,.75),0 1px 1px rgba(0,0,0,.15);outline:none}.fbvd--wrapper b{font-size:13px;position:relative;top:1px;color:#3b5998;font-weight:400}</style><style type="text/css">@keyframes fadeInOpacity{0%{opacity:0}to{opacity:1}}:hover>*>.fbvd--wrapper{animation-name:fadeInOpacity;animation-duration:.3s;opacity:1}.fbvd--wrapper{position:absolute;top:10px;left:10px;opacity:0;text-align:center;margin:0;z-index:5}.fbvd--wrapper a{background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbD0iIzRiNGY1NiIgZD0iTTggMTUuNWw3LjUtNy41aC00LjV2LThoLTZ2OGgtNC41eiI+PC9wYXRoPjwvc3ZnPg==) no-repeat 3px 4.55px; background-color: #fff; display:inline-block;font:700 14px Helvetica,Arial,sans-serif;color:#4b4f56;text-decoration:none;vertical-align:middle;padding:0px 8px 0px;margin-right:8px;border-radius:2px; line-height: 22px; padding-left:19px; border: 1px solid #e7e7e7; background-size: 13px}.fbvd--wrapper a:last-child{margin-right:0}.fbvd--wrapper a:hover{text-decoration:none}.fbvd--wrapper a:focus{box-shadow:0 0 1px 2px rgba(88,144,255,.75),0 1px 1px rgba(0,0,0,.15);outline:none}.fbvd--wrapper b{font-size:13px;position:relative;top:1px;color:#3b5998;font-weight:400}</style></head>
+<body cz-shortcut-listen="true">
 
 <div id="page-wrapper">
 
@@ -182,7 +200,7 @@
                                                      </div>
                                                   </div>
                                                </a>
-                                           </div><div class="slimScrollBar" style="background: rgb(158, 165, 171); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div><div class="slimScrollRail" style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
+                                           </div><div class="slimScrollBar" style="background: rgb(158, 165, 171); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px;"></div><div class="slimScrollRail" style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
                                         </li>
                                         <!--<li>-->
                                             <!--<a href="javascript:void(0);" class="list-group-item text-right">-->
@@ -239,7 +257,7 @@
                                 <li><a href="<%= request.getContextPath() %>/views/user/userUpdate.jsp"> <i class="ti-paint-bucket"></i> 개인 정보 수정 </a></li>
 
                                 <li>
-                                    <a href="<%= request.getContextPath() %>/views/user/userUsed.jsp"><i class="ti-paint-bucket"></i> 이용내역</span></a>
+                                    <a href="<%= request.getContextPath() %>/views/user/userUsed.jsp"><i class="ti-paint-bucket"></i> 이용내역</a>
 
                                 </li>
                                 
@@ -250,7 +268,7 @@
                                
 
                                 <li>
-                                    <a href="javascript: void(0);" aria-expanded="true"><i class="ti-pencil-alt"></i> 리뷰 및 메모</span></a>
+                                    <a href="javascript: void(0);" aria-expanded="true"><i class="ti-pencil-alt"></i> 리뷰 및 메모</a>
                                 </li>
 
      
@@ -285,30 +303,27 @@
                                                 <div class="panel-heading">
                                                     <h3 class="panel-title">현재 로그인 정보</h3>
                                                 </div>
-                                                <div class="panel-body">
+                                                <div class="panel-body" id="ipi">
                                                     <div class="m-b-20">
-                                                        <strong>Full Name</strong>
+                                                        <strong>접속국가</strong>
                                                         <br>
-                                                        <p class="text-muted">Johnathan Deo</p>
+                                                        <p class="text-muted">대한민국</p>
                                                     </div>
                                                     <div class="m-b-20">
-                                                        <strong>Mobile</strong>
+                                                        <strong>지역</strong>
                                                         <br>
-                                                        <p class="text-muted">(123) 123 1234</p>
+                                                        <p class="text-muted">서울</p>
                                                     </div>
                                                     <div class="m-b-20">
-                                                        <strong>Email</strong>
+                                                        <strong>아이피</strong>
                                                         <br>
-                                                        <p class="text-muted">johnath@domain.com</p>
-                                                    </div>
-                                                    <div class="about-info-p m-b-0">
-                                                        <strong>Location</strong>
-                                                        <br>
-                                                        <p class="text-muted">USA</p>
+                                                        <p class="text-muted" id="ddd">192.168.0.10</p>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- Personal-Information -->
+       
+                                            
 
                                             <!-- Social -->
                                             <div class="panel panel-default panel-fill">
@@ -316,8 +331,7 @@
                                                     <h3 class="panel-title">해외 로그인 차단 관리</h3>
                                                 </div>
                                                 <div class="panel-body">
-												
-												<input type="checkbox" id="ld1" data-plugin="switchery" data-color="#1bb99a" data-switchery="true" style="display: none;">	
+                                                <input id="ld1" type="checkbox" checked="" data-plugin="switchery" data-color="#1bb99a" data-switchery="true" style="display: none; display: inline;">	
 												<p id="ld2"></p>
 												
                                                 </div>
@@ -326,22 +340,39 @@
                                         </div>
                                         
                                         <script>
-                                        	$(function(){
-                                        		
-                                        		$("#ld1").change(checkedChange);
-                                        		
-                                                function checkedChange(){
- 
-                                                    //선택한 요소의 값이 'checked' 일 경우
-                                                    if($(this).prop("checked")){
-                                                        $("#ld2").text("해외 로그인 설정이 완료 되었습니다.")
+             
+           
+                                        	$(function(){	
+                                 
+                                                    if($("#ld1").prop("checked")){
+                                                        $("#ld2").text("해외 로그인 차단").css("color","green");
                                                     }else{
-                                                    	$("#ld2").text("해외 로그인 차단이 ")
+                                                    	$("#ld2").text("해외 로그인 허용 ").css("color","red");
                                                     }
+                                                    
+                                                    $("#ld1").change(function(){
+                                                        if($("#ld1").prop("checked")){
+                                                            $("#ld2").text("해외 로그인 차단").css("color","green");
+                                                        }else{
+                                                        	$("#ld2").text("해외 로그인 허용 ").css("color","red");
+                                                        }
+                                                    	
+                                                    	
+                                                    });
+                                                    
+                                                    $('.form-validation').parsley();
+                                                    $('.summernote').summernote({
+                                                        height: 350,                 // set editor height
+                                                        minHeight: null,             // set minimum height of editor
+                                                        maxHeight: null,             // set maximum height of editor
+                                                        focus: false                 // set focus to editable area after initializing summernote
+                                                    });
+                                                    
+                                                    
+                                                    
+                                                    
 
-                                                }
-                                        		
-                                        		
+
                                         	});
                                         
                                         
@@ -356,125 +387,54 @@
                                                 </div>
                                                 <div class="panel-body">
 													<div class="col-sm-12">
-                                <h4 class="m-t-0 header-title">Data Tables</h4>
+                               
 
                                 <div class="table-responsive m-b-20">
-                                    <h5><b>Default Example</b></h5>
-                                    <p class="text-muted font-13 m-b-30">
-                                        DataTables has most features enabled by default, so all you need to do to use it with
-                                        your own tables is to call the construction function: <code>$().DataTable();</code>.
-                                    </p>
+          
 
-                                    <div id="datatable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"><div class="row"><div class="col-sm-6"><div class="dataTables_length" id="datatable_length"><label>Show <select name="datatable_length" aria-controls="datatable" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-6"><div id="datatable_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="datatable"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                                    <div id="datatable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer" style="width: 810px"><div class="row"><div class="col-sm-6"><div class="dataTables_length" id="datatable_length"></div></div></div><div class="row"><div class="col-sm-12"><div id="datatable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"><div class="row"><div class="col-sm-6"><div class="dataTables_length" id="datatable_length"><label></label></div></div></div><div class="row"><div class="col-sm-12"><div id="datatable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"><div class="row"><div class="col-sm-6"><div class="dataTables_length" id="datatable_length"><label></label></div></div><div class="col-sm-6"><div id="datatable_filter" class="dataTables_filter"><label></label></div></div></div><div class="row"><div class="col-sm-12"><table id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
                                         <thead>
-                                        <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Name: activate to sort column descending" aria-sort="ascending" style="width: 236px;">Name</th><th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 387px;">Position</th><th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 171px;">Office</th><th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 91px;">Age</th><th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 176px;">Start date</th><th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 130px;">Salary</th></tr>
+                                        <tr role="row"><th class="sorting_desc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 234px;" aria-sort="descending">Name</th><th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 343px;">Position</th><th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 185px;">Office</th></tr>
                                         </thead>
 
 
                                         <tbody>
+										
                                         
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
+										
+										
+										
+										
 
+                                        
+                                        
+                                                                                
+                                                                                
+                                                                                
+                                        
+                                        
                                         <tr role="row" class="odd">
-                                            <td class="sorting_1">Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>2008/11/28</td>
-                                            <td>$162,700</td>
-                                        </tr><tr role="row" class="even">
-                                            <td class="sorting_1">Angelica Ramos</td>
-                                            <td>Chief Executive Officer (CEO)</td>
-                                            <td>London</td>
-                                            <td>47</td>
-                                            <td>2009/10/09</td>
-                                            <td>$1,200,000</td>
-                                        </tr><tr role="row" class="odd">
-                                            <td class="sorting_1">Ashton Cox</td>
-                                            <td>Junior Technical Author</td>
-                                            <td>San Francisco</td>
-                                            <td>66</td>
-                                            <td>2009/01/12</td>
-                                            <td>$86,000</td>
-                                        </tr><tr role="row" class="even">
-                                            <td class="sorting_1">Bradley Greer</td>
-                                            <td>Software Engineer</td>
-                                            <td>London</td>
-                                            <td>41</td>
-                                            <td>2012/10/13</td>
-                                            <td>$132,000</td>
-                                        </tr><tr role="row" class="odd">
-                                            <td class="sorting_1">Brenden Wagner</td>
-                                            <td>Software Engineer</td>
-                                            <td>San Francisco</td>
-                                            <td>28</td>
-                                            <td>2011/06/07</td>
-                                            <td>$206,850</td>
-                                        </tr><tr role="row" class="even">
-                                            <td class="sorting_1">Brielle Williamson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>New York</td>
-                                            <td>61</td>
-                                            <td>2012/12/02</td>
-                                            <td>$372,000</td>
-                                        </tr><tr role="row" class="odd">
-                                            <td class="sorting_1">Caesar Vance</td>
-                                            <td>Pre-Sales Support</td>
-                                            <td>New York</td>
-                                            <td>21</td>
-                                            <td>2011/12/12</td>
-                                            <td>$106,450</td>
-                                        </tr><tr role="row" class="even">
-                                            <td class="sorting_1">Cedric Kelly</td>
-                                            <td>Senior Javascript Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>22</td>
-                                            <td>2012/03/29</td>
-                                            <td>$433,060</td>
-                                        </tr><tr role="row" class="odd">
-                                            <td class="sorting_1">Charde Marshall</td>
-                                            <td>Regional Director</td>
-                                            <td>San Francisco</td>
-                                            <td>36</td>
-                                            <td>2008/10/16</td>
-                                            <td>$470,600</td>
-                                        </tr><tr role="row" class="even">
-                                            <td class="sorting_1">Colleen Hurst</td>
-                                            <td>Javascript Developer</td>
-                                            <td>San Francisco</td>
-                                            <td>39</td>
-                                            <td>2009/09/15</td>
-                                            <td>$205,500</td>
-                                        </tr></tbody>
-                                    </table></div></div><div class="row"><div class="col-sm-6"><div class="dataTables_info" id="datatable_info" role="status" aria-live="polite">Showing 1 to 10 of 30 entries</div></div><div class="col-sm-6"><div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate"><ul class="pagination"><li class="paginate_button previous disabled" aria-controls="datatable" tabindex="0" id="datatable_previous"><a href="#">Previous</a></li><li class="paginate_button active" aria-controls="datatable" tabindex="0"><a href="#">1</a></li><li class="paginate_button " aria-controls="datatable" tabindex="0"><a href="#">2</a></li><li class="paginate_button " aria-controls="datatable" tabindex="0"><a href="#">3</a></li><li class="paginate_button next" aria-controls="datatable" tabindex="0" id="datatable_next"><a href="#">Next</a></li></ul></div></div></div></div>
+											<td class="sorting_1">이름5</td>
+											<td class="">포지션5</td>
+											<td>오피스5</td>
+										</tr><tr role="row" class="even">
+											<td class="sorting_1">이름4</td>
+											<td class="">포지션4</td>
+											<td>오피스4</td>
+										</tr><tr role="row" class="odd">
+											<td class="sorting_1">이름3</td>
+											<td class="">포지션3</td>
+											<td>오피스3</td>
+										</tr><tr role="row" class="even">
+											<td class="sorting_1">이름2</td>
+											<td class="">포지션2</td>
+											<td>오피스2</td>
+										</tr><tr role="row" class="odd">
+											<td class="sorting_1">이름1</td>
+											<td class="">포지션1</td>
+											<td>오피스1</td>
+										</tr></tbody>
+                                    </table></div></div><div class="row"><div class="col-sm-6"><div class="dataTables_info" id="datatable_info" role="status" aria-live="polite"></a></li></ul></div></div></div></div></div></div><div class="row"><div class="col-sm-6"><div class="dataTables_info" id="datatable_info" role="status" aria-live="polite"></div></div></div></div><div class="row"><div class="col-sm-6"></div></div></div></div></div>
                                 </div>
                             </div>
                                                 </div>
@@ -494,7 +454,7 @@
                                         <div class="panel-body">
                                             <form role="form">
                                                 <div class="form-group">
-                                                    <label for="FullName">Full Name</label>
+                                                    <label for="FullName">ㅈ</label>
                                                     <input type="text" value="John Doe" id="FullName" class="form-control">
                                                 </div>
                                                 <div class="form-group">
@@ -544,38 +504,14 @@
             </div>
             <!-- end .page-contentbar -->
         </div>
+	
+	        <!-- js placed at the end of the document so the pages load faster -->
+        <script src="<%= request.getContextPath() %>/resources/assets/js/jquery-2.1.4.min.js"></script>
+        <script src="<%= request.getContextPath() %>/resources/assets/js/bootstrap.min.js"></script>
+        <script src="<%= request.getContextPath() %>/resources/assets/js/metisMenu.min.js"></script>
+        <script src="<%= request.getContextPath() %>/resources/assets/js/jquery.slimscroll.min.js"></script>
 
-
-        <!-- js placed at the end of the document so the pages load faster -->
-        <script src="<%= request.getContextPath() %>/resources/assets/js/jquery-2.1.4.min.js?after"></script>
-        <script src="<%= request.getContextPath() %>/resources/assets/js/bootstrap.min.js?after"></script>
-        <script src="<%= request.getContextPath() %>/resources/assets/js/metisMenu.min.js?after"></script>
-        <script src="<%= request.getContextPath() %>/resources/assets/js/jquery.slimscroll.min.js?after"></script>
-
-        <!-- App Js -->
-        <script src="<%= request.getContextPath() %>/resources/assets/js/jquery.app.js?after"></script>
-
-		 <!-- js placed at the end of the document so the pages load faster -->
-        <script src="<%= request.getContextPath() %>/resources/assets/js/jquery-2.1.4.min.js?after"></script>
-        <script src="<%= request.getContextPath() %>/resources/assets/js/bootstrap.min.js?after"></script>
-        <script src="<%= request.getContextPath() %>/resources/assets/js/metisMenu.min.js?after"></script>
-        <script src="<%= request.getContextPath() %>/resources/assets/js/jquery.slimscroll.min.js?after"></script>
-
-        <script src="<%= request.getContextPath() %>/resources/assets/plugins/bootstrap-tagsinput/js/bootstrap-tagsinput.min.js?after"></script>
-        <script src="<%= request.getContextPath() %>/resources/assets/plugins/select2/js/select2.min.js?after" type="text/javascript"></script>
-        <script src="<%= request.getContextPath() %>/resources/assets/plugins/bootstrap-filestyle/js/bootstrap-filestyle.min.js?after" type="text/javascript"></script>
-        <script src="<%= request.getContextPath() %>/resources/assets/plugins/switchery/switchery.min.js?after"></script>
-        <script type="text/javascript" src="<%= request.getContextPath() %>/resources/assets/plugins/parsleyjs/parsley.min.js?after"></script>
-
-        <script src="<%= request.getContextPath() %>/resources/assets/plugins/moment/moment.js"></script>
-     	<script src="<%= request.getContextPath() %>/resources/assets/plugins/timepicker/bootstrap-timepicker.js"></script>
-     	<script src="<%= request.getContextPath() %>/resources/assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js?after"></script>
-     	<script src="<%= request.getContextPath() %>/resources/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js?after"></script>
-     	<script src="<%= request.getContextPath() %>/resources/assets/plugins/clockpicker/js/bootstrap-clockpicker.min.js?after"></script>
-     	<script src="<%= request.getContextPath() %>/resources/assets/plugins/bootstrap-daterangepicker/daterangepicker.js?after"></script>
-        <script src="<%= request.getContextPath() %>/resources/assets/plugins/summernote/summernote.min.js?after"></script>
-        
-                <!-- Datatable js -->
+        <!-- Datatable js -->
         <script src="<%= request.getContextPath() %>/resources/assets/plugins/datatables/jquery.dataTables.min.js"></script>
         <script src="<%= request.getContextPath() %>/resources/assets/plugins/datatables/dataTables.bootstrap.js"></script>
         <script src="<%= request.getContextPath() %>/resources/assets/plugins/datatables/dataTables.buttons.min.js"></script>
@@ -591,20 +527,46 @@
         <script src="<%= request.getContextPath() %>/resources/assets/plugins/datatables/dataTables.scroller.min.js"></script>
         <script src="<%= request.getContextPath() %>/resources/assets/plugins/datatables/dataTables.colVis.js"></script>
         <script src="<%= request.getContextPath() %>/resources/assets/plugins/datatables/dataTables.fixedColumns.min.js"></script>
-        
-        
-        
+
         <!-- init -->
         <script src="<%= request.getContextPath() %>/resources/assets/pages/jquery.datatables.init.js"></script>
+
+        <!-- App Js -->
+        <script src="<%= request.getContextPath() %>/resources/assets/js/jquery.app.js"></script>
+
+		
+		
+		<!-- 버튼에관한 -->
+		
+		
+        <!-- js placed at the end of the document so the pages load faster -->
+        <script src="<%= request.getContextPath() %>/resources/assets/js/jquery-2.1.4.min.js"></script>
+        <script src="<%= request.getContextPath() %>/resources/assets/js/bootstrap.min.js"></script>
+        <script src="<%= request.getContextPath() %>/resources/assets/js/metisMenu.min.js"></script>
+        <script src="<%= request.getContextPath() %>/resources/assets/js/jquery.slimscroll.min.js"></script>
+
+        <script src="<%= request.getContextPath() %>/resources/assets/plugins/bootstrap-tagsinput/js/bootstrap-tagsinput.min.js"></script>
+        <script src="<%= request.getContextPath() %>/resources/assets/plugins/select2/js/select2.min.js" type="text/javascript"></script>
+        <script src="<%= request.getContextPath() %>/resources/assets/plugins/bootstrap-filestyle/js/bootstrap-filestyle.min.js" type="text/javascript"></script>
+        <script src="<%= request.getContextPath() %>/resources/assets/plugins/switchery/switchery.min.js"></script>
+        <script type="text/javascript" src="<%= request.getContextPath() %>/resources/assets/plugins/parsleyjs/parsley.min.js"></script>
+
+        <script src="<%= request.getContextPath() %>/resources/assets/plugins/moment/moment.js"></script>
+     	<script src="<%= request.getContextPath() %>/resources/assets/plugins/timepicker/bootstrap-timepicker.js"></script>
+     	<script src="<%= request.getContextPath() %>/resources/assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+     	<script src="<%= request.getContextPath() %>/resources/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+     	<script src="<%= request.getContextPath() %>/resources/assets/plugins/clockpicker/js/bootstrap-clockpicker.min.js"></script>
+     	<script src="<%= request.getContextPath() %>/resources/assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+        <script src="<%= request.getContextPath() %>/resources/assets/plugins/summernote/summernote.min.js"></script>
 
         <!-- form advanced init js -->
         <script src="<%= request.getContextPath() %>/resources/assets/pages/jquery.form-advanced.init.js"></script>
 
         <!-- App Js -->
-        <script src="<%= request.getContextPath() %>/resources/assets/js/jquery.app.js"></script>
+        <script src="<%= request.getContextPath() %>/resources/	assets/js/jquery.app.js"></script>
 
         <script type="text/javascript">
-/*             $(document).ready(function() {
+            $(document).ready(function() {
                 $('.form-validation').parsley();
                 $('.summernote').summernote({
                     height: 350,                 // set editor height
@@ -612,9 +574,21 @@
                     maxHeight: null,             // set maximum height of editor
                     focus: false                 // set focus to editable area after initializing summernote
                 });
-            }); */
+            });
         </script>
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
-</body>
-</html>	
+
+	<style>.tb_button {padding:1px;cursor:pointer;border-right: 1px solid #8b8b8b;border-left: 1px solid #FFF;border-bottom: 1px solid #fff;}.tb_button.hover {borer:2px outset #def; background-color: #f8f8f8 !important;}.ws_toolbar {z-index:100000} .ws_toolbar .ws_tb_btn {cursor:pointer;border:1px solid #555;padding:3px}   .tb_highlight{background-color:yellow} .tb_hide {visibility:hidden} .ws_toolbar img {padding:2px;margin:0px}</style><style>.tb_button {padding:1px;cursor:pointer;border-right: 1px solid #8b8b8b;border-left: 1px solid #FFF;border-bottom: 1px solid #fff;}.tb_button.hover {borer:2px outset #def; background-color: #f8f8f8 !important;}.ws_toolbar {z-index:100000} .ws_toolbar .ws_tb_btn {cursor:pointer;border:1px solid #555;padding:3px}   .tb_highlight{background-color:yellow} .tb_hide {visibility:hidden} .ws_toolbar img {padding:2px;margin:0px}</style></body></html>
