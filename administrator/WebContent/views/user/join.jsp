@@ -210,16 +210,21 @@
                         				return false;
                         			}
                         			
-                        			if(!(/^[가-힣]{2,}$/.test($("#joinForm input[name=userName]").val()))){
-                        				alert('이름은 한글로 2글자 이상 입력');
-                        				return false;
-                        			}
+
                         			
                         			return true;
                         			
                         			
                         		}
                                 
+                        		
+                        		
+                        		
+                        		
+                        		
+                        		
+                        		
+                        		
                                 
                                 
                                 </script>

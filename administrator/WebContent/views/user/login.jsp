@@ -75,19 +75,19 @@ $(function(){
                                     <!--<h4 class="text-uppercase font-bold m-b-0">Sign In</h4>-->
                                 </div>
                                 <div class="account-content">
-                                    <form class="form-horizontal" action="#">
+                                    <form class="form-horizontal" action="<%= request.getContextPath() %>/login.user" method="post">
 
                                         <div class="form-group m-b-20">
                                             <div class="col-xs-12">
-                                                <label for="emailaddress" style="color: white;">아이디</label>
-                                                <input class="form-control" type="email" id="emailaddress" required="" placeholder="">
+                                                <label for="idi" style="color: white;">아이디</label>
+                                                <input class="form-control" name="userId" type="text" id="idi" required="" placeholder="">
                                             </div>
                                         </div>
 
                                         <div class="form-group m-b-20">
                                             <div class="col-xs-12">
                                                 <label for="password" style="color: white;">비밀번호</label>
-                                                <input class="form-control" type="password" required="" id="password" placeholder="">
+                                                <input class="form-control" name="userPwd" type="password" required="" id="password" placeholder="">
                                             </div>
                                         </div>
 

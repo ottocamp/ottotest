@@ -25,6 +25,18 @@ public class UserService {
 
 		return result;
 	}
+
+	public User loginUser(String userId, String userPwd) {
+		
+		Connection con = getConnection();
+		
+		User user = new UserDao().loginUser(con, userId, userPwd);
+		
+		
+		
+		
+		return user;
+	}
 	
 	
 
