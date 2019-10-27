@@ -49,7 +49,7 @@
                      </a>
                   </div>
                   <div class="login_wrap">
-                     <a href="<%= request.getContextPath() %>/views/login/login.jsp" >
+                     <a href="<%= request.getContextPath() %>/views/user/login.jsp" >
                         로그인
                      </a>
                   </div>

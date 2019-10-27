@@ -9,52 +9,29 @@
 </head>
 <body>
 
-<p></p>
-
-
-
-	<button onclick="dd();">확인</button>
-
-
-
-	
-	<script>
-
-		    var ip = "";
-   		 	var hostname = "";
-   			var city = "";
-   			var region = "";
-    		var country = "";
-    		var loc = "";
-    		var org = "";
-
-
-
-
-	    $.getJSON("http://ipinfo.io", function(data) {
-        ip = data.ip // 접속자 ip
-        hostname = data.hostname // 접속자 hostname
-        city = data.city // 접속자 도시
-        region = data.region // 접속자 지역
-        country = data.country // 접속자 국가
-        loc = data.loc // 접속 위도, 경도
-        org = data.org // ISP (인터넷 서비스 제공사업자)
-
-
-	});
-	
-	function dd(){
-			alert(ip);
-		}
-
-
-
-	
-	
-	
-	
-	</script>
-
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+ 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
