@@ -44,21 +44,25 @@ public class UserLoginServlet extends HttpServlet {
 		
 
 		if(loginUser != null) {
+			
+			System.out.println("로그인 성공");
 
-			HttpSession session = request.getSession();
+/*			HttpSession session = request.getSession();
 			
 
 			session.setAttribute("loginUser", loginUser);
 
-			response.sendRedirect(request.getContextPath());
+			response.sendRedirect(request.getContextPath());*/
 			
 			
-		}else { // 실패일 경우
-			request.setAttribute("msg", "로그인 실패");
+		}else { 
+			
+			System.out.println("로그인 실패");
+/*			request.setAttribute("msg", "로그인 실패");
 			
 
 			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
-			view.forward(request, response);
+			view.forward(request, response);*/
 						
 		}
 	}

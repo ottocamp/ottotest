@@ -199,8 +199,8 @@ pre.code,
 			border-radius: 4px;
 }
 
-::selection { color: #fff; background-color:#f15a23;}
-::-moz-selection { color: #fff; background-color:#f15a23;}
+::selection { color: rgb(0, 0, 0); background-color:#f15a23;}
+::-moz-selection { color: rgb(0, 0, 0); background-color:#f15a23;}
 
 
 
@@ -614,7 +614,7 @@ input[type="checkbox"]:checked + label:before {
 
 /* 7.2 Slider
 -------------------------------------------------------------- */
-/* .tparrows.default {
+.tparrows.default {
     background: transparent;
     border: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 100%;
@@ -774,7 +774,7 @@ input[type="checkbox"]:checked + label:before {
 	border-width:0px;
 	border-color:rgb(255,255,255);
 	border-style:none;
-} */
+}
 
 
 /* 7.3 Top panel: Page title and breadcrumbs
@@ -2021,8 +2021,12 @@ button,
 }
 계속보기 버튼 메인2-1 소망
 .sc_button.sc_button_style_filled1 {
+	font-size: 14px;
+    width: 50%;
+	height: 60px !important;
+    margin-bottom: 15px;
 	background-color: black;
-	 border: 3px solid black;
+	border: 3px solid black;
 	color: #ffffff;
 	border-color: #000000;
     color: #ffffff;
@@ -2039,16 +2043,16 @@ button:hover,
 
 }
 
-/* .sc_button.sc_button_style_filled.sc_button_bg_link {
-    border-color: #63cac5;
+.sc_button.sc_button_style_filled.sc_button_bg_link {
+    border-color: #ffffff;
     color: #ffffff;
-    background-color: #63cac5; */
+    background-color: #888888; 
 }
-/* .sc_button.sc_button_style_filled.sc_button_bg_link:hover {
-    border-color: #63cac5 !important;
-    color: #63cac5 !important;
-    background-color: #ffffff !important;
-} */
+.sc_button.sc_button_style_filled.sc_button_bg_link:hover {
+	border-color: #ffffff;
+    color: #ffffff;
+	background-color: #888888; 
+}
 
 .sc_button.sc_button_bg_user {
     border-color: #f5f7f7;
@@ -2062,14 +2066,14 @@ button:hover,
 }
 
 .sc_button.sc_button_style_filled.sc_button_bg_color {
-    border-color: #f15a23;
-    color: #ffffff;
-    background-color: #f15a23;
+	border-color: #ccd0d1 !important;
+    color: #989ea1 !important;
+    background-color: #ffffff !important;
 }
 .sc_button.sc_button_style_filled.sc_button_bg_color:hover {
-    border-color: #63cac5 !important;
-    color: #ffffff !important;
-    background-color: #63cac5 !important;
+	border-color: #ccd0d1 !important;
+    color: #989ea1 !important;
+    background-color: #ffffff !important;
 }
 
 
