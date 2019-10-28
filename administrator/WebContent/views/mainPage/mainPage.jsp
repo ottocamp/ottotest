@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+ 
+
+%>    
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,144 +53,7 @@
                         <img src="<%= request.getContextPath() %>/resources/main/images/11.png" width="200px" height="80px">
                      </a>
                   </div>
-                  <div class="login_wrap">
-                     <a href="#user-popUp" class="popup_link popup_login_link">
-                        로그인
-                     </a>
-                     <div id="user-popUp" class="user-popUp mfp-with-anim mfp-hide">
-                        <div class="sc_tabs">
-                           <ul class="loginHeadTab">
-                              <li>
-                                 <a href="#loginForm" class="loginFormTab icon">로그인</a>
-                              </li>
-                              <li>
-                                 <a href="#registerForm" class="registerFormTab icon">회원가입</a>
-                              </li>
-                           </ul>
-                           <div id="loginForm" class="formItems loginFormBody popup_wrap popup_login">
-                              <div class="form_left">
-                                 <form action="#" method="post" name="login_form" class="popup_form login_form">
-                                    <input type="hidden" name="redirect_to" value="#">
-                                    <div class="icon popup_form_field login_field iconed_field icon-mail-1">
-                                       <input type="text" id="log" name="log" value="" placeholder="아이디입력">
-                                    </div>
-                                    <div class="icon popup_form_field password_field iconed_field icon-lock-1">
-                                       <input type="password" id="password" name="pwd" value="" placeholder="비밀번호">
-                                    </div>
-                                    <div class="popup_form_field remember_field">
-                                       <a href="#" class="forgot_password">비밀번호를 잊어버리셨나요?</a>
-                                       <input type="checkbox" value="forever" id="rememberme" name="rememberme">
-                                       <label for="rememberme">아이디저장</label>
-                                    </div>
-                                    <div class="popup_form_field submit_field">
-                                       <input type="submit" class="submit_button sc_button sc_button_square sc_button_style_filled sc_button_bg_link sc_button_size_medium" value="로그인">
-                                    </div>
-                                 </form>
-                              </div>
-                              <div class="form_right">
-                                 <div class="login_socials_title">소셜 로그인</div>
-                                 <div class="login_socials_list">
-                                    <a href="#" class="iconLogin fb"></a>
-                                    <a href="#" class="iconLogin tw"></a>
-                                    <a href="#" class="iconLogin gg"></a>
-                                 </div>
-                                 <div class="login_socials_problem">
-                                    <a href="#">로그인에 문제가 있습니까?</a>
-                                 </div>
-                                 <div class="result message_block"></div>
-                              </div>
-                           </div>
-                           <div id="registerForm" class="formItems registerFormBody popup_wrap popup_registration">
-                              <form name="registration_form" method="post" class="popup_form registration_form" action="<%= request.getContextPath() %>/insert.user" onsubmit="return joinValidate();">
-                                 <input type="hidden" name="redirect_to" value="#"/>
-                                 <div class="form_left">
-                                        <div class="icon popup_form_field login_field iconed_field icon-user-3">
-                                                <input type="text" id="registration_username" name="uname"  value="" placeholder="이름입력">
-                                             </div>
-                                             <div class="icon popup_form_field login_field iconed_field icon-user-3">
-                                                <input type="text" id="registration_username" name="udate"  value="" placeholder="생년월일">
-                                             </div>
-                                    <div class="icon popup_form_field login_field iconed_field icon-user-3">
-                                       <input type="text" id="registration_username" name="uid"  value="" placeholder="아이디입력">
-                                    </div>
-                                    <div class="icon popup_form_field email_field iconed_field icon-mail-1">
-                                       <input type="text" id="registration_email" name="uemail" value="" placeholder="이메일주소입력">
-                                    </div>
-                                    <div class="popup_form_field agree_field">
-                                       <input type="checkbox" value="agree" id="registration_agree" name="registration_agree">
-                                       <label for="registration_agree">동의합니다</label> 
-                                       <a href="#">동의약관</a>
-                                    </div>
-                                    <div class="popup_form_field submit_field">
-                                       <input type="submit" class="submit_button sc_button sc_button_square sc_button_style_filled sc_button_bg_link sc_button_size_medium" value="회원가입">
-                                    </div>
-                                 </div>
-                                 <div class="form_right">
-                                    <div class="icon popup_form_field password_field iconed_field icon-lock-1">
-                                       <input type="password" id="registration_pwd"  name="upwd"  value="" placeholder="비밀번호">
-                                    </div>
-                                    <div class="icon popup_form_field password_field iconed_field icon-lock-1">
-                                       <input type="password" id="registration_pwd2" name="upwd2" value="" placeholder="비밀번호 재확인">
-                                    </div>
-                                    <div class="popup_form_field description_field">최소6글자이상입력해주세요</div>
-                                 </div>
-                              </form>
-                              
-                              <div class="result messageBlock"></div>
-                              
-                              
-                              <!-- 가입 유효성 검사 -->
-                              
-                               <script>
-                        		function joinValidate(){
-                        			if(!(/^[가-힣]{2,4}$/.test($("input[name=uname]").val()))){
-                        				alert('이름은 한글로만2~4자 입력');
-                        				return false;
-                        			}
-                        			
-                        			
-                        			if(!(/^[a-z][a-z\d]{3,11}$/i.test($("input[name=uid]").val()))){
-                        				alert('아이디는 영소문자로 시작해서 4~12자 입력(숫자 포함 가능)');
-                        				return false;
-                        			}
-                        			
-                        			
-                        			
-                        			
-                        			if($("input[name=upwd]").val() != $("input[name=upwd2").val()){
-                        				alert('비밀번호 불일치');
-                        				return false;
-                        			}
-                        			
-                        			//  /^\d{2}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/
-                        			
-                        			
-                        			if(!(/^\d{2}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/i.test($("input[name=udate]").val()))){
-                        				alert('생년월일을 옳바르게 입력해주세요');
-                        				return false;
-                        			}
-                        			
-                        			
-
-                        			
-                        			return true;
-                        			 		
-                        		}
-                                
-                        		
-   
-                                </script>
-                              
-                              
-                              
-                              
-                              
-                              
-
-                           </div>
-                        </div>
-                     </div>
-                  </div>
+ 
                   
                   <a href="#" class="menu_main_responsive_button icon-menu-1"></a>
                   <nav role="navigation" class="menu_main_nav_area">
@@ -219,7 +87,7 @@
                               </li>
                               </ul>
 
-                              <li class="menu-item menu-item-has-children">
+                              <li class="menu-item menu-item-has-children" hidden="">
                                  <a href="#">마이페이지</a>
                                  <ul class="sub-menu">
                                     <li class="menu-item">
@@ -270,6 +138,10 @@
                                              <a href="">예약관리</a>
                                           </li>   
                                              </ul>
+                                        <li class="menu-item menu-item-has-children">
+                                       <a href="<%= request.getContextPath() %>/views/user/login.jsp">로그인</a>
+	 
+                                             
 											</ul>
 										</div>
 									</div>

@@ -6,8 +6,8 @@
 <meta charset="UTF-8">
 <title>회원 메인 메뉴</title>
 <!-- jqury cdn -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
 
 
 <link rel="shortcut icon"
@@ -475,7 +475,7 @@ to {
 									class="ti-spray"></i> 나의 관심 캠핑장</a></li>
 
 							<li><a
-								href="<%= request.getContextPath() %>/views/user/userLoginInfo.jsp"><i
+								href="<%= request.getContextPath() %>/ipinfo.user"><i
 									class="ti-spray"></i> 로그인 관리 </a></li>
 
 
@@ -519,15 +519,15 @@ to {
 											<div class="panel-body" id="ipi">
 												<div class="m-b-20">
 													<strong>접속국가</strong> <br>
-													<p class="text-muted" id="ipc">대한민국</p>
+													<p class="text-muted" id="ipc">&nbsp;</p>
 												</div>
 												<div class="m-b-20">
 													<strong>지역</strong> <br>
-													<p class="text-muted" id="ipr">서울</p>
+													<p class="text-muted" id="ipr">&nbsp;</p>
 												</div>
 												<div class="m-b-20">
 													<strong>아이피</strong> <br>
-													<p class="text-muted" id="ipip">192.168.0.10</p>
+													<p class="text-muted" id="ipip">&nbsp;</p>
 												</div>
 											</div>
 										</div>
@@ -553,30 +553,7 @@ to {
 									</div>
 
 									<script>
-                                    		var ip = "";
-                                        	var hostname = "";
-                                       	 	var city = "";
-                                       	 	var region = "";
-                                       	 	var country = "";
-                                       		var loc = "";
-                                      		var org = "";
-                                     
-                                        $.getJSON("http://ipinfo.io", function(data) {
-                                            ip = data.ip // 접속자 ip
-                                            hostname = data.hostname // 접속자 hostname
-                                            city = data.city // 접속자 도시
-                                            region = data.region // 접속자 지역
-                                            country = data.country // 접속자 국가
-                                            loc = data.loc // 접속 위도, 경도
-                                            org = data.org // ISP (인터넷 서비스 제공사업자)
-                                     
-                                        });
-
-                                       
-
-                                        
-                                        
-             
+        
            
                                         	$(function(){	
                                  
@@ -588,9 +565,53 @@ to {
                                                     
                                                     $("#ld1").change(function(){
                                                         if($("#ld1").prop("checked")){
-                                                            $("#ld2").text("해외 로그인 차단").css("color","green");
+                                                           
+                                                            
+                                                            
+                                            				$.ajax({
+                                            					url : "<%= request.getContextPath() %>/block.user",
+                                            					type : "post",
+                                            					data : {flag:"n",userNo:"12"},
+                                            					success: function(data){
+                                            						
+                                            						if(data=="success"){
+                                            							alert("해외 로그인 차단설정이 성공적으로 이루졌습니다.");
+                                            							 $("#ld2").text("해외 로그인 차단").css("color","green");
+                                            						}else{
+                                            							alert("해외 로그인 차단설정이 실패하였습니다.");
+                                            						}
+	
+                                            					},
+                                            					error: function(){
+                                            						alert("통신에 실패한곳이에얌 하와와")
+                                            					}
+                                            				});
+                
                                                         }else{
-                                                        	$("#ld2").text("해외 로그인 허용 ").css("color","red");
+                                                        	
+                                            				$.ajax({
+                                            					url : "<%= request.getContextPath() %>/block.user",
+                                            					type : "post",
+                                            					data : {flag:"y",userNo:"12"},
+                                            					success: function(data){
+                                            						
+                                            						if(data=="success"){
+
+                                                                    	alert("해외 로그인 접속 허용");
+                                                                    	$("#ld2").text("해외 로그인 허용 ").css("color","red");
+                                            							
+                                            						}else{
+                                            							alert("해외 로그인 접속허용 설정에 실패하였습니다.");
+                                            						}
+	
+                                            					},
+                                            					error: function(){
+                                            						alert("통신에 실패한곳이에얌 하와와")
+                                            					}
+                                            				});
+                                                        	
+ 	
+
                                                         }
                                                     	
                                                     	
@@ -606,13 +627,19 @@ to {
                                                     
                                                     
                                                     //
+                                                    
+                                                    var country = geoplugin_countryName();
+                                                    var region = geoplugin_region();
+                                                    var ip = geoplugin_request(); 
+                                                    
+                                                    
                                                    setTimeout(function() {
                                                 	   $("#ipc").text(country).css("color","green");
                                                 	   $("#ipr").text(region).css("color","green");
                                                 	   $("#ipip").text(ip).css("color","green");
                                                 	   
 
-                                          			  }, 1500);
+                                          			  }, 500);
                                                     
                                                     
                                                     
@@ -687,17 +714,22 @@ to {
 																											aria-controls="datatable" rowspan="1"
 																											colspan="1"
 																											aria-label="Name: activate to sort column ascending"
-																											style="width: 234px;" aria-sort="descending">Name</th>
+																											style="width: 234px;" aria-sort="descending">접속일시</th>
 																										<th class="sorting" tabindex="0"
 																											aria-controls="datatable" rowspan="1"
 																											colspan="1"
 																											aria-label="Position: activate to sort column ascending"
-																											style="width: 343px;">Position</th>
+																											style="width: 343px;">아이피</th>
 																										<th class="sorting" tabindex="0"
 																											aria-controls="datatable" rowspan="1"
 																											colspan="1"
 																											aria-label="Office: activate to sort column ascending"
-																											style="width: 185px;">Office</th>
+																											style="width: 185px;">접속국가</th>
+																										<th class="sorting" tabindex="0"
+																											aria-controls="datatable" rowspan="1"
+																											colspan="1"
+																											aria-label="Office: activate to sort column ascending"
+																											style="width: 185px;">접속 성공 여부</th>
 																									</tr>
 																								</thead>
 
@@ -706,42 +738,56 @@ to {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-																									<tr role="row" class="odd">
-																										<td class="sorting_1">이름5</td>
-																										<td class="">포지션5</td>
-																										<td>오피스5</td>
+																									<tr>
+																										<td>2019 년 1</td>
+																										<td>192.168.0.1</td>
+																										<td>한국1</td>
+																										<td>성공</td>
 																									</tr>
-																									<tr role="row" class="even">
-																										<td class="sorting_1">이름4</td>
-																										<td class="">포지션4</td>
-																										<td>오피스4</td>
+																																																		<tr>
+																										<td>2019 년 2</td>
+																										<td>192.168.0.2</td>
+																										<td>한국2</td>
+																										<td>성공</td>
 																									</tr>
-																									<tr role="row" class="odd">
-																										<td class="sorting_1">이름3</td>
-																										<td class="">포지션3</td>
-																										<td>오피스3</td>
+																																																		<tr>
+																										<td>2019 년 3</td>
+																										<td>192.168.0.3</td>
+																										<td>한국3</td>
+																										<td>성공</td>
 																									</tr>
-																									<tr role="row" class="even">
-																										<td class="sorting_1">이름2</td>
-																										<td class="">포지션2</td>
-																										<td>오피스2</td>
+																																																		<tr>
+																										<td>2019 년 4</td>
+																										<td>192.168.0.4</td>
+																										<td>한국4</td>
+																										<td>성공</td>
 																									</tr>
-																									<tr role="row" class="odd">
-																										<td class="sorting_1">이름1</td>
-																										<td class="">포지션1</td>
-																										<td>오피스1</td>
+																																																		<tr>
+																										<td>2019 년 5</td>
+																										<td>192.168.0.5</td>
+																										<td>한국5</td>
+																										<td>실패</td>
 																									</tr>
+																																																		<tr>
+																										<td>2019 년 6</td>
+																										<td>192.168.0.6</td>
+																										<td>한국7</td>
+																										<td>성공</td>
+																									</tr>
+																																																		<tr>
+																										<td>2019 년 7</td>
+																										<td>192.168.0.7</td>
+																										<td>한국7</td>
+																										<td>성공</td>
+																									</tr>
+																																																		<tr>
+																										<td>2019 년 8</td>
+																										<td>192.168.0.8</td>
+																										<td>한국8</td>
+																										<td>성공</td>
+																									</tr>
+																									
+
 																								</tbody>
 																							</table>
 																						</div>

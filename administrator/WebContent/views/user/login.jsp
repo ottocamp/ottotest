@@ -1,28 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%
-	String joinMsg =  (String)request.getAttribute("joinMsg");	
- %>    
+<%
+	String msg = (String)request.getAttribute("msg");
+%>       
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>로그인 페이지</title>
 <script>
-
-	var joinMsg = "<%= joinMsg %>";
-
-$(function(){
-	if(joinMsg != "null"){
-		alert(joinMsg);
-	}
-
-});
-
-
+	var msg = "<%= msg %>";
+	
+	$(function(){
+		if(msg != "null"){
+			alert(msg);
+		}
+		if(msg=="가입성공"){
+			window.close();
+		}
+	});
 </script>
 		<!-- jqury cdn -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
 		
         <meta charset="utf-8" />
         <title>SimpleAdmin - Responsive Admin Dashboard Template</title>
@@ -68,7 +68,7 @@ $(function(){
                             <div class="m-t-40 card-box">
                                 <div class="text-center">
                                     <h2 class="text-uppercase m-t-0 m-b-30">
-                                        <a href="index.html" class="text-success">
+                                        <a href="<%= request.getContextPath() %>" class="text-success">
                                             <span><img src="<%= request.getContextPath() %>/resources/login/assets/images/logo_dark.png" alt="" height="70" width="150"></span>
                                         </a>
                                     </h2>
@@ -107,8 +107,33 @@ $(function(){
                                                 <button class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
                                             </div>
                                         </div>
-
+											<input type="hidden" name="ip">
+											<input type="hidden" name="country">
+											
                                     </form>
+                                    
+                                    
+                                    <script>
+                                    	var country = geoplugin_countryName();
+                                    	var ip = geoplugin_request(); 
+                                    	
+                                    	$(function(){
+                                    		$("input[name=ip]").val(ip);
+                                    		$("input[name=country]").val(country);
+                                    		
+                                    	});
+                                    
+                                    
+                                    
+                                    
+                                    </script>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
 
                                     <div class="clearfix"></div>
 

@@ -2241,7 +2241,7 @@ h3.timeline-title {
     border-top-right-radius: 5px;
     background-color: #458bc4; }
   .pricing-column .plan-price {
-    font-size: 48px;
+    font-size: 48px;`
     font-family: "Hind", sans-serif;
     margin-bottom: 10px;
     color: #626773; }
@@ -2319,10 +2319,12 @@ h3.timeline-title {
   max-width: 520px; }
   .wrapper-page .card-box {
   	border:1px solid black;
-  	box-shadow:1px 1px 1px 1px gray,1px 1px 1px 1px gray,1px 1px 1px 1px gray,1px 1px 1px 1px gray ;
     padding: 30px;
     border-radius: 9px;
-    border-color: rgba(98, 103, 115, 0.3); }
+    border-color: rgba(98, 103, 115, 0.3); 
+    
+    }
+
 
 .account-pages .account-content {
   padding: 30px; }

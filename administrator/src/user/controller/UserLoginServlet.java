@@ -36,7 +36,10 @@ public class UserLoginServlet extends HttpServlet {
 
 		String userId = request.getParameter("userId");
 		String userPwd = request.getParameter("userPwd");
+		String ip = request.getParameter("ip");
+		String country = request.getParameter("country");
 		
+
 
 		User loginUser = new UserService().loginUser(userId, userPwd);
 
@@ -46,6 +49,14 @@ public class UserLoginServlet extends HttpServlet {
 		if(loginUser != null) {
 			
 			System.out.println("로그인 성공");
+			
+			int result = new UserService().ipInfo(ip,country);
+			
+			if(result>0) {
+				System.out.println("아이피 정보 기록 성공");
+			}else {
+				System.out.println("아이피 정보 기록 실패");
+			}
 
 /*			HttpSession session = request.getSession();
 			

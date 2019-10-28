@@ -233,7 +233,7 @@
                                 
                                 <li><a href="<%= request.getContextPath() %>/views/user/userFavorite.jsp"><i class="ti-spray"></i> 나의 관심 캠핑장</a></li>
 
-                                <li><a href="<%= request.getContextPath() %>/views/user/userLoginInfo.jsp"><i class="ti-spray"></i> 로그인 관리 </a></li>
+                                <li><a href="<%= request.getContextPath() %>/ipinfo.user"><i class="ti-spray"></i> 로그인 관리 </a></li>
 
                                 <li>
                                     <a href="javascript: void(0);" aria-expanded="true"><i class="ti-pencil-alt"></i> 리뷰 및 메모</span></a>

@@ -116,4 +116,60 @@ public class UserDao {
 		return user;
 	}
 
+
+
+
+	public int loginBlock(Connection con, int userNo, String flag) {
+       
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String query =  prop.getProperty("loginBlock");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, flag);
+			pstmt.setInt(2, userNo);
+			
+			result= pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+
+		return result;
+	}
+
+
+
+
+	public int ipInfo(Connection con, String ip, String country) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String query =  prop.getProperty("ipInfo");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, ip);
+			pstmt.setString(2, country);
+			
+			result=pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		
+		return result;
+	}
+
 }
