@@ -1,6 +1,7 @@
 package user.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -38,42 +39,66 @@ public class UserLoginServlet extends HttpServlet {
 		String userPwd = request.getParameter("userPwd");
 		String ip = request.getParameter("ip");
 		String country = request.getParameter("country");
+		String ccode = request.getParameter("ccode");
 		
 
-
 		User loginUser = new UserService().loginUser(userId, userPwd);
+
 
 		response.setContentType("text/html; charset=utf-8");
 		
 
 		if(loginUser != null) {
 			
-			System.out.println("로그인 성공");
 			
-			int result = new UserService().ipInfo(ip,country);
+				int uno = loginUser.getUserNo();
 			
-			if(result>0) {
-				System.out.println("아이피 정보 기록 성공");
-			}else {
-				System.out.println("아이피 정보 기록 실패");
-			}
+				if(loginUser.getForignYN().equalsIgnoreCase("n") && !ccode.equals("KR")) {
+					
+					int result = new UserService().ipInfo(uno,ip,country,"해외 로그인 차단");
+					PrintWriter out = response.getWriter();
+					out.print("block");
 
-/*			HttpSession session = request.getSession();
+				}else {
 			
-
-			session.setAttribute("loginUser", loginUser);
-
-			response.sendRedirect(request.getContextPath());*/
 			
+			
+				
+				String flag = new UserService().selectFlag(uno);
+				
+				
+				
+				int result = new UserService().ipInfo(uno,ip,country,"성공");
+				
+
+				HttpSession session = request.getSession();
+				
+				
+				session.setAttribute("loginUser", loginUser);
+				PrintWriter out = response.getWriter();
+
+				out.print("success");
+				
+				}
+
+
 			
 		}else { 
 			
-			System.out.println("로그인 실패");
-/*			request.setAttribute("msg", "로그인 실패");
+			
+			User searchUser = new UserService().searchUser(userId);
+			
+			if(searchUser != null) {
+				//해당 아이디가 있으므로 비번이 틀린 경우 
+				int result = new UserService().ipInfo(searchUser.getUserNo(),ip,country,"비밀번호 불일치");	
+				PrintWriter out = response.getWriter();
+				out.print("pwdError");
+			}else {
+				PrintWriter out = response.getWriter();
+				out.print("noUser");
+			}
 			
 
-			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
-			view.forward(request, response);*/
 						
 		}
 	}

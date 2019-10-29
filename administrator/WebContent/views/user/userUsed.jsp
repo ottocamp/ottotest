@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="user.model.vo.*"%>
+<%
+	
+	User loginUser = (User)session.getAttribute("loginUser");
+
+%>  
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -235,7 +244,8 @@
                                 
                                 
 
-                                <li><a href="<%= request.getContextPath() %>/ipinfo.user"><i class="ti-spray"></i> 로그인 관리 </a></li>
+                                <li><a href="<%= request.getContextPath() %>/ipinfo.user?uno=<%= loginUser.getUserNo() %>"><i
+									class="ti-spray"></i> 로그인 관리 </a></li>
 
                                 <li>
                                     <a href="javascript: void(0);" aria-expanded="true"><i class="ti-pencil-alt"></i> 리뷰 및 메모</span></a>

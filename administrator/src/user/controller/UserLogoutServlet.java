@@ -1,53 +1,37 @@
 package user.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import user.model.service.UserService;
-import user.model.vo.IpInfo;
-
 /**
- * Servlet implementation class UserIpInfo
+ * Servlet implementation class LogoutServlet
  */
-@WebServlet("/ipinfo.user")
-public class UserIpInfo extends HttpServlet {
+@WebServlet("/logout.user")
+public class UserLogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserIpInfo() {
+    public UserLogoutServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-	
-			int uno = Integer.parseInt(request.getParameter("uno"));
-			
-			ArrayList<IpInfo> ipinfo = new UserService().selectIpInfo(uno);
-			
-			
-			String flag = new UserService().selectFlag(uno);
-	
-			response.setContentType("text/html; charset=utf-8");
-			
-			request.setAttribute("ipinfo", ipinfo);
-			request.setAttribute("flag", flag);
-			request.getRequestDispatcher("views/user/userLoginInfo.jsp").forward(request, response);
-
-
-			
+		// session에 저장 된 값들을 지움 -> 로그인 되어 있던 회원의 정보를 없애 로그아웃 시킴
+		request.getSession().invalidate();
+		
+		response.sendRedirect(request.getContextPath());
+		
+		
+		
 	}
 
 	/**

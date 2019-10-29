@@ -6,10 +6,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import static common.JDBCTemplate.*;
 
+import user.model.vo.IpInfo;
 import user.model.vo.User;
 
 public class UserDao {
@@ -147,7 +149,7 @@ public class UserDao {
 
 
 
-	public int ipInfo(Connection con, String ip, String country) {
+	public int ipInfo(Connection con,int uno, String ip, String country,String flag) {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
@@ -156,8 +158,10 @@ public class UserDao {
 		
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, ip);
-			pstmt.setString(2, country);
+			pstmt.setInt(1, uno);
+			pstmt.setString(2, ip);
+			pstmt.setString(3, country);
+			pstmt.setString(4, flag);
 			
 			result=pstmt.executeUpdate();
 			
@@ -171,5 +175,124 @@ public class UserDao {
 		
 		return result;
 	}
+
+
+
+
+	public ArrayList<IpInfo> selectIpInfo(Connection con, int uno) {
+		
+		ArrayList<IpInfo> ipinfo = new ArrayList<IpInfo>();
+		ResultSet rset = null;
+		PreparedStatement pstmt = null;
+		
+		String query =  prop.getProperty("selectIpInfo");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, uno);
+			
+			rset = pstmt.executeQuery();
+			
+			
+
+				while(rset.next()) {
+				
+				IpInfo ip = new IpInfo();
+				ip.setCountry(rset.getString("CONNECT_COUNTRY"));
+				ip.setDate(rset.getString("CONNECT_DATE"));
+				ip.setIp(rset.getString("IP"));
+				ip.setSof(rset.getString("SOF"));
+				
+				ipinfo.add(ip);
+				
+				}
+				
+				
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			close(rset);
+			close(pstmt);
+		}
+		
+		
+		return ipinfo;
+	}
+
+
+
+
+	public String selectFlag(Connection con, int uno) {
+		
+		String flag ="";
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String query =  prop.getProperty("selectFlag");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, uno);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				flag=rset.getString("FORIGNYN");
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return flag;
+	}
+
+
+
+
+	public User searchUser(Connection con,String userId) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		User searchUser = null;
+		
+		String query =  prop.getProperty("selectUser");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, userId);
+			
+			rset =pstmt.executeQuery();
+			
+			if(rset.next()) {
+				searchUser = new User();
+				searchUser.setUserNo(rset.getInt("USER_NO"));
+				
+			}
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		
+		
+		return searchUser;
+	}
+
+
+
+
+
 
 }

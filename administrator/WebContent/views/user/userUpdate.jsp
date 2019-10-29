@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="user.model.vo.*"%>
+<%
+	
+	User loginUser = (User)session.getAttribute("loginUser");
+
+%>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,7 +50,7 @@
                 <!-- LOGO -->
                 <div class="topbar-left">
                     <div class="">
-                        <a href="index.html" class="logo">
+                        <a href="<%= request.getContextPath() %>" class="logo">
                             <img src="<%= request.getContextPath() %>/resources/assets/images/logo.png" alt="logo" class="logo-lg">
                             <img src="<%= request.getContextPath() %>/resources/assets/images/logo_sm.png" alt="logo" class="logo-sm hidden">
                         </a>
@@ -241,7 +246,8 @@
                                 
                                 <li><a href="<%= request.getContextPath() %>/views/user/userFavorite.jsp"><i class="ti-spray"></i> 나의 관심 캠핑장</a></li>
 
-                                <li><a href="<%= request.getContextPath() %>/ipinfo.user"></i> 로그인 관리 </a></li>
+                                <li><a href="<%= request.getContextPath() %>/ipinfo.user?uno=<%= loginUser.getUserNo() %>"><i
+									class="ti-spray"></i> 로그인 관리 </a></li>
 
                                 <li>
                                     <a href="javascript: void(0);" aria-expanded="true"><i class="ti-pencil-alt"></i> 리뷰 및 메모</a>
@@ -457,6 +463,15 @@
                                         </div>
                                     </div>
                                     <!-- Personal-Information -->
+                                    
+                                    <script>
+                                    	$("#FullName").val("<%=loginUser.getUserName() %>");
+                                    
+                                    </script>
+                                    
+                                    
+                                    
+                                    
                                 </div>
                             </div>
                         </div>
