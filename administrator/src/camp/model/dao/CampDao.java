@@ -1,17 +1,19 @@
 package camp.model.dao;
 
+import static common.JDBCTemplate.close;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import camp.model.vo.Attachment;
 import camp.model.vo.CampInfo;
-import grade.model.dao.GradeDao;
-import static common.JDBCTemplate.*;
 
 
 public class CampDao {
@@ -73,4 +75,78 @@ public class CampDao {
 		return cList;
 	}
 
+
+	public ArrayList<Attachment> selectAttachmentList(Connection conn) {
+
+		Statement stmt = null;	
+		ArrayList<Attachment> aList = new ArrayList<Attachment>();
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectAttachmentList");
+		
+		try {
+			stmt = conn.createStatement();
+			
+			rset = stmt.executeQuery(sql);
+			
+			while(rset.next()) {
+				
+				Attachment at = new Attachment(rset.getInt(1),
+												  rset.getString(2),
+												  rset.getString(3),
+												  rset.getString(4),
+												  rset.getDate(5),
+												  rset.getInt(6),
+												  rset.getInt(7));
+				
+				aList.add(at);
+			}
+	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+			
+		return aList;
+	}
+
+
+	public int campApproval(Connection conn, int cNo) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String sql = prop.getProperty("campApprval");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, cNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

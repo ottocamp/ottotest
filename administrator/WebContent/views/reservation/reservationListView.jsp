@@ -290,15 +290,15 @@
                                     <a href="javascript: void(0);" aria-expanded="true"><i class="ti-pencil-alt"></i> 공지사항 및 문의답변 <span class="fa arrow"></span></a>
                                     <ul class="nav-second-level nav collapse" aria-expanded="false">
                                         <li><a href="forms-general.html">공지사항</a></li>
-                                        <li><a href="forms-advanced.html">문의답변</a></li>
+                                        <li><a href="<%=request.getContextPath()%>/Question.li">문의답변</a></li>
                                     </ul>
                                 </li>
 
                                 <li class="">
                                     <a href="javascript: void(0);" aria-expanded="false"><i class="ti-menu-alt"></i> 매출내역확인 <span class="fa arrow"></span></a>
                                     <ul class="nav-second-level nav collapse" aria-expanded="false" style="height: 0px;">
-                                        <li><a href="tables-basic.html">전체 매출내역</a></li>
-                                        <li><a href="tables-advanced.html">사업장별 매출내역</a></li>
+                                        <li><a href="<%= request.getContextPath() %>/views/sales/salesTotalView.jsp">전체 매출내역</a></li>
+                                        <li><a href="<%=request.getContextPath()%>/salesList.sl">사업장별 매출내역</a></li>
                                     </ul>
                                 </li>
 
