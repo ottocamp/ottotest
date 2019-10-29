@@ -1,5 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="java.util.* , user.model.vo.*"%>
+<%
+	ArrayList<IpInfo> ipinfo =  (ArrayList<IpInfo>)request.getAttribute("ipinfo"); 
+	String flag = (String)request.getAttribute("flag");
+	
+	System.out.println(flag);
+	
+	String checkflag = ""; 
+	
+	if(flag.equalsIgnoreCase("N")){
+		checkflag="checked";
+	}
+	
+	
+	User loginUser = (User)session.getAttribute("loginUser");
+
+%>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -474,8 +490,7 @@ to {
 								href="<%= request.getContextPath() %>/views/user/userFavorite.jsp"><i
 									class="ti-spray"></i> 나의 관심 캠핑장</a></li>
 
-							<li><a
-								href="<%= request.getContextPath() %>/ipinfo.user"><i
+							<li><a href="<%= request.getContextPath() %>/ipinfo.user?uno=<%= loginUser.getUserNo() %>"><i
 									class="ti-spray"></i> 로그인 관리 </a></li>
 
 
@@ -541,10 +556,10 @@ to {
 												<h3 class="panel-title">해외 로그인 차단 관리</h3>
 											</div>
 											<div class="panel-body">
-												<input id="ld1" type="checkbox" checked=""
+												<input id="ld1" type="checkbox"
 													data-plugin="switchery" data-color="#1bb99a"
 													data-switchery="true"
-													style="display: none; display: inline;">
+													style="display: none; display: inline;" <%= checkflag %>>
 												<p id="ld2"></p>
 
 											</div>
@@ -556,12 +571,17 @@ to {
         
            
                                         	$(function(){	
+                                        		
+                                        			var userNo = <%= loginUser.getUserNo() %>
+                                        		
                                  
                                                     if($("#ld1").prop("checked")){
-                                                        $("#ld2").text("해외 로그인 차단").css("color","green");
+                                                        $("#ld2").text("해외 로그인 차단 중").css("color","green");
                                                     }else{
-                                                    	$("#ld2").text("해외 로그인 허용 ").css("color","red");
+                                                    	$("#ld2").text("해외 로그인 허용 중").css("color","red");
                                                     }
+                                                    
+                                                    $("#desclist").click();
                                                     
                                                     $("#ld1").change(function(){
                                                         if($("#ld1").prop("checked")){
@@ -571,19 +591,19 @@ to {
                                             				$.ajax({
                                             					url : "<%= request.getContextPath() %>/block.user",
                                             					type : "post",
-                                            					data : {flag:"n",userNo:"12"},
+                                            					data : {flag:"N",userNo:userNo},
                                             					success: function(data){
                                             						
                                             						if(data=="success"){
                                             							alert("해외 로그인 차단설정이 성공적으로 이루졌습니다.");
-                                            							 $("#ld2").text("해외 로그인 차단").css("color","green");
+                                            							 $("#ld2").text("해외 로그인 차단 중").css("color","green");
                                             						}else{
                                             							alert("해외 로그인 차단설정이 실패하였습니다.");
                                             						}
 	
                                             					},
                                             					error: function(){
-                                            						alert("통신에 실패한곳이에얌 하와와")
+                                            						alert("통신 실패")
                                             					}
                                             				});
                 
@@ -592,13 +612,13 @@ to {
                                             				$.ajax({
                                             					url : "<%= request.getContextPath() %>/block.user",
                                             					type : "post",
-                                            					data : {flag:"y",userNo:"12"},
+                                            					data : {flag:"Y",userNo:userNo},
                                             					success: function(data){
                                             						
                                             						if(data=="success"){
 
                                                                     	alert("해외 로그인 접속 허용");
-                                                                    	$("#ld2").text("해외 로그인 허용 ").css("color","red");
+                                                                    	$("#ld2").text("해외 로그인 허용 중 ").css("color","red");
                                             							
                                             						}else{
                                             							alert("해외 로그인 접속허용 설정에 실패하였습니다.");
@@ -606,7 +626,7 @@ to {
 	
                                             					},
                                             					error: function(){
-                                            						alert("통신에 실패한곳이에얌 하와와")
+                                            						alert("통신 실패")
                                             					}
                                             				});
                                                         	
@@ -714,7 +734,7 @@ to {
 																											aria-controls="datatable" rowspan="1"
 																											colspan="1"
 																											aria-label="Name: activate to sort column ascending"
-																											style="width: 234px;" aria-sort="descending">접속일시</th>
+																											style="width: 234px;" aria-sort="descending" id="desclist">접속일시</th>
 																										<th class="sorting" tabindex="0"
 																											aria-controls="datatable" rowspan="1"
 																											colspan="1"
@@ -736,56 +756,14 @@ to {
 
 																								<tbody>
 
-
-
+																									<% for(IpInfo i : ipinfo){ %>																								
 																									<tr>
-																										<td>2019 년 1</td>
-																										<td>192.168.0.1</td>
-																										<td>한국1</td>
-																										<td>성공</td>
-																									</tr>
-																																																		<tr>
-																										<td>2019 년 2</td>
-																										<td>192.168.0.2</td>
-																										<td>한국2</td>
-																										<td>성공</td>
-																									</tr>
-																																																		<tr>
-																										<td>2019 년 3</td>
-																										<td>192.168.0.3</td>
-																										<td>한국3</td>
-																										<td>성공</td>
-																									</tr>
-																																																		<tr>
-																										<td>2019 년 4</td>
-																										<td>192.168.0.4</td>
-																										<td>한국4</td>
-																										<td>성공</td>
-																									</tr>
-																																																		<tr>
-																										<td>2019 년 5</td>
-																										<td>192.168.0.5</td>
-																										<td>한국5</td>
-																										<td>실패</td>
-																									</tr>
-																																																		<tr>
-																										<td>2019 년 6</td>
-																										<td>192.168.0.6</td>
-																										<td>한국7</td>
-																										<td>성공</td>
-																									</tr>
-																																																		<tr>
-																										<td>2019 년 7</td>
-																										<td>192.168.0.7</td>
-																										<td>한국7</td>
-																										<td>성공</td>
-																									</tr>
-																																																		<tr>
-																										<td>2019 년 8</td>
-																										<td>192.168.0.8</td>
-																										<td>한국8</td>
-																										<td>성공</td>
-																									</tr>
+																										<td> <%= i.getDate() %></td>
+																										<td> <%= i.getIp() %></td>
+																										<td> <%= i.getCountry() %></td>
+																										<td> <%= i.getSof() %></td>
+																									</tr>																					
+																									<% } %>
 																									
 
 																								</tbody>

@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="user.model.vo.*"%>
 <%
- 
+	
+	User loginUser = (User)session.getAttribute("loginUser");
 
 %>    
     
@@ -58,7 +59,7 @@
                   <a href="#" class="menu_main_responsive_button icon-menu-1"></a>
                   <nav role="navigation" class="menu_main_nav_area">
                      <ul id="menu_main" class="menu_main_nav">
-                        <li class="menu-item menu-item-has-children">
+                        <li class="menu-item menu-item-has-children" id="boardMenu" >
                            <a href="#">게시판</a>
                            <ul class="sub-menu">
                               <li class="menu-item">
@@ -76,7 +77,7 @@
                         
                            </ul>
                         </li>
-                        <li class="menu-item menu-item-has-children">
+                        <li class="menu-item menu-item-has-children" id="qnaMenu">
                            <a href="#">Q&A</a>
                            <ul class="sub-menu">
                               <li class="menu-item">
@@ -87,8 +88,8 @@
                               </li>
                               </ul>
 
-                              <li class="menu-item menu-item-has-children" hidden="">
-                                 <a href="#">마이페이지</a>
+                              <li class="menu-item menu-item-has-children" id="userMenu" hidden>
+                                 <a href="<%= request.getContextPath() %>/views/user/userMain.jsp">마이페이지</a>
                                  <ul class="sub-menu">
                                     <li class="menu-item">
                                        <a href="">개인정보수정</a>
@@ -103,7 +104,7 @@
                                        <a href="">리뷰및메모</a>
                                     </li>
                                     </ul>   
-                                    <li class="menu-item menu-item-has-children">
+                                    <li class="menu-item menu-item-has-children" id="businessMenu" hidden>
                                         <a href="#">사업자관리페이지</a>
                                         <ul class="sub-menu">
                                            <li class="menu-item">
@@ -119,7 +120,7 @@
                                               <a href="">문의답변</a>
                                            </li>                                 
                                            </ul>
-                                    <li class="menu-item menu-item-has-children">
+                                    <li class="menu-item menu-item-has-children" id="adminMenu" hidden>
                                        <a href="#">관리자페이지</a>
                                        <ul class="sub-menu">
                                           <li class="menu-item">
@@ -138,21 +139,32 @@
                                              <a href="">예약관리</a>
                                           </li>   
                                              </ul>
-                                        <li class="menu-item menu-item-has-children">
+                                        <li class="menu-item menu-item-has-children" id="loginMenu" hidden>
                                        <a href="<%= request.getContextPath() %>/views/user/login.jsp">로그인</a>
-	 
-                                             
+                                       <li class="menu-item menu-item-has-children" id="logoutMenu"   hidden>
+                                       <a href="<%= request.getContextPath() %>/logout.user" >로그아웃</a>
+
 											</ul>
 										</div>
 									</div>
 								</li>
 							</ul>
-						</div>
-                                        
+						</div>                    
                   </nav>
                </div>
             </div>
          </header>
+         						<script>
+										<% if(loginUser==null){ %>
+         										$("#loginMenu").show();										
+         								<% }else{ %>
+         										<% if(loginUser.getUserType().equals("1")){ %>	
+         										$("#userMenu").show();	 
+         										$("#logoutMenu").show();	
+         										<% } %>
+         								<%  }%>
+         						</script>
+         
 
          <section id="mainslider_1" class="slider_wrap slider_fullscreen slider_engine_revo slider_alias_main mainslider_1">
             <div id="rev_slider_4_1_wrapper" class="rev_slider_wrapper fullscreen-container">

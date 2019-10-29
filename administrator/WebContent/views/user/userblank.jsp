@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="user.model.vo.*"%>
+<%
+	
+	User loginUser = (User)session.getAttribute("loginUser");
+
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -233,7 +238,8 @@
                                 
                                 <li><a href="<%= request.getContextPath() %>/views/user/userFavorite.jsp"><i class="ti-spray"></i> 나의 관심 캠핑장</a></li>
 
-                                <li><a href="<%= request.getContextPath() %>/ipinfo.user"><i class="ti-spray"></i> 로그인 관리 </a></li>
+                                <li><a href="<%= request.getContextPath() %>/ipinfo.user?uno=<%= loginUser.getUserNo() %>"><i
+									class="ti-spray"></i> 로그인 관리 </a></li>
                                 
                                
 
