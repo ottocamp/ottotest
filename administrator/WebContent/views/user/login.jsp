@@ -123,7 +123,7 @@
                                     	/* console.log(country);
                                     	console.log(ip);
                                     	console.log(ccode); */
-                                    	
+                                    	/*1*/
                                     	
                                     	$(function(){
                                     		$("input[name=ip]").val(ip);
