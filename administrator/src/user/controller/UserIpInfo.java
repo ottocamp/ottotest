@@ -45,7 +45,7 @@ public class UserIpInfo extends HttpServlet {
 			request.setAttribute("ipinfo", ipinfo);
 			request.setAttribute("flag", flag);
 			request.getRequestDispatcher("views/user/userLoginInfo.jsp").forward(request, response);
-
+			//1
 
 			
 	}
