@@ -39,6 +39,8 @@ public class UserLoginServlet extends HttpServlet {
 		String userPwd = request.getParameter("userPwd");
 		String ip = request.getParameter("ip");
 		String country = request.getParameter("country");
+		String ccode = request.getParameter("ccode");
+		
 
 		User loginUser = new UserService().loginUser(userId, userPwd);
 
@@ -48,10 +50,23 @@ public class UserLoginServlet extends HttpServlet {
 
 		if(loginUser != null) {
 			
-			if(loginUser.getForignYN().equalsIgnoreCase("y")) {
-				//해외로그인 가능할때
-				
+			
 				int uno = loginUser.getUserNo();
+			
+				if(loginUser.getForignYN().equalsIgnoreCase("n") && !ccode.equals("KR")) {
+					
+					int result = new UserService().ipInfo(uno,ip,country,"해외 로그인 차단");
+					PrintWriter out = response.getWriter();
+					out.print("block");
+
+				}else {
+			
+			
+			
+				
+				String flag = new UserService().selectFlag(uno);
+				
+				
 				
 				int result = new UserService().ipInfo(uno,ip,country,"성공");
 				
@@ -60,23 +75,11 @@ public class UserLoginServlet extends HttpServlet {
 				
 				
 				session.setAttribute("loginUser", loginUser);
-				System.out.println(loginUser);
 				PrintWriter out = response.getWriter();
 
 				out.print("success");
 				
-			}else {
-				//해외 로그인 불가설정 했을 시
-				
-				if(!country.equalsIgnoreCase("kr")) {
-					//로그인페이지에서 갖고온 country가
-					
-					
 				}
-				
-				
-			}
-			
 
 
 			

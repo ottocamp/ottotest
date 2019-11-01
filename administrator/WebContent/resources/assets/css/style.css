@@ -397,7 +397,11 @@ h1, h2, h3, h4, h5, h6 {
 .dropdown-menu > li > a {
   padding: 6px 20px; }
 
-
+.card-box {
+  background-color: #ffffff;
+  border: 1px solid rgba(98, 103, 115, 0.2);
+  padding: 20px;
+  margin-bottom: 20px; }
 
 .header-title {
   margin-top: 0;

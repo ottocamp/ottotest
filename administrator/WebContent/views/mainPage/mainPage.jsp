@@ -63,16 +63,13 @@
                            <a href="#">게시판</a>
                            <ul class="sub-menu">
                               <li class="menu-item">
-                                 <a href="">전체게시글</a>
+                                 <a href="<%= request.getContextPath() %>/list.bo?b_tag=0">공지사항</a>
                               </li>
                               <li class="menu-item">
-                                 <a href="">리뷰 게시글</a>
+                                 <a href="<%= request.getContextPath() %>/list.bo?b_tag=1">정보 공유</a>
                               </li>
                               <li class="menu-item">
-                                 <a href="">잡답 게시글</a>
-                              </li>
-                              <li class="menu-item">
-                                 <a href="">자주 묻는 질문</a>
+                                 <a href="<%= request.getContextPath() %>/list.bo?b_tag=2">잡답 게시글</a>
                               </li>
                         
                            </ul>
@@ -121,7 +118,7 @@
                                            </li>                                 
                                            </ul>
                                     <li class="menu-item menu-item-has-children" id="adminMenu" hidden>
-                                       <a href="#">관리자페이지</a>
+                                       <a href="<%= request.getContextPath() %>/views/common/Adminmenubar.jsp">관리자페이지</a>
                                        <ul class="sub-menu">
                                           <li class="menu-item">
                                              <a href="">매출내역</a>
@@ -158,10 +155,17 @@
 										<% if(loginUser==null){ %>
          										$("#loginMenu").show();										
          								<% }else{ %>
-         										<% if(loginUser.getUserType().equals("1")){ %>	
+         										<% if(loginUser.getUserType().equals("U")){ %>	
          										$("#userMenu").show();	 
          										$("#logoutMenu").show();	
-         										<% } %>
+         										<% }else if(loginUser.getUserType().equals("A")){ %>
+         										$("#adminMenu").show();	 
+         										$("#logoutMenu").show();
+         										<%  }else if(loginUser.getUserType().equals("B")){%>
+         										$("#businessMenu").show();	 
+         										$("#logoutMenu").show();
+         										
+         										<%  }%>
          								<%  }%>
          						</script>
          

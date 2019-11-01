@@ -32,20 +32,27 @@ public class ReservationDeleteServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int reNo = Integer.parseInt(request.getParameter("reNo"));
+		String index = request.getParameter("reNo");
+			
+		int reNo = Integer.parseInt(index.split(",")[0]);
+		String msg = index.split(",")[1];
 		
+		System.out.println(msg);
 		int result = new ReservationService().deleteReservation(reNo);
 		
 		if(result > 0) {
 			
-			ArrayList<Reservation> rList = new ReservationService().SelectList();
-			
-			request.setAttribute("rList", rList);
-			
 			request.getSession().setAttribute("msg", "회원예약사항 취소에 성공하였습니다.");	
 			
-			request.getRequestDispatcher("views/reservation/reservationListView.jsp").forward(request, response);
+			if(msg.equals("예약취소")) {
 			
+				request.getRequestDispatcher("reservationAvail.li").forward(request, response);
+				
+			}else if(msg.equals("전체내역")) {
+			
+				request.getRequestDispatcher("reservation.li").forward(request, response);
+			}
+						
 		}else {
 			request.setAttribute("msg", "예약 삭제에 실패하였습니다.");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);

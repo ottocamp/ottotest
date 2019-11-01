@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import user.model.service.UserService;
 import user.model.vo.IpInfo;
+import user.model.vo.User;
 
 /**
  * Servlet implementation class UserIpInfo
@@ -32,8 +33,9 @@ public class UserIpInfo extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+			User loginUser =  (User)request.getSession().getAttribute("loginUser");
 	
-			int uno = Integer.parseInt(request.getParameter("uno"));
+			int uno = loginUser.getUserNo();
 			
 			ArrayList<IpInfo> ipinfo = new UserService().selectIpInfo(uno);
 			
@@ -45,7 +47,7 @@ public class UserIpInfo extends HttpServlet {
 			request.setAttribute("ipinfo", ipinfo);
 			request.setAttribute("flag", flag);
 			request.getRequestDispatcher("views/user/userLoginInfo.jsp").forward(request, response);
-
+			//
 
 			
 	}
