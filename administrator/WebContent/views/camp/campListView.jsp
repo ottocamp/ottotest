@@ -2,10 +2,6 @@
     pageEncoding="UTF-8" import="java.util.*, camp.model.vo.*"%>    
 <%	
 	ArrayList<CampInfo> cList = (ArrayList<CampInfo>)request.getAttribute("cList");
-	ArrayList<Attachment> aList = (ArrayList<Attachment>)request.getAttribute("aList");
-	String msg = (String)session.getAttribute("msg");
-
-	int index = 1;
 %>
 <!DOCTYPE html>
 <html>
@@ -16,24 +12,13 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		
         <meta charset="utf-8" />
-        <title>사업장 승인 페이지</title>
+        <title>관리자 메인 페이지</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <link rel="shortcut icon" href="<%= request.getContextPath() %>/resources/assets/images/favicon.ico">
-
- 		<!-- DataTables -->
-        <link href="<%= request.getContextPath() %>/resources/assets/plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
-        <link href="<%= request.getContextPath() %>/resources/assets/plugins/datatables/buttons.bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="<%= request.getContextPath() %>/resources/assets/plugins/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="<%= request.getContextPath() %>/resources/assets/plugins/datatables/scroller.bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="<%= request.getContextPath() %>/resources/assets/plugins/datatables/dataTables.colVis.css" rel="stylesheet" type="text/css"/>
-        <link href="<%= request.getContextPath() %>/resources/assets/plugins/datatables/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="<%= request.getContextPath() %>/resources/assets/plugins/datatables/fixedColumns.dataTables.min.css" rel="stylesheet" type="text/css"/>
-
-
 
         <!-- Bootstrap core CSS -->
         <link href="<%= request.getContextPath() %>/resources/assets/css/bootstrap.min.css" rel="stylesheet">
@@ -44,45 +29,6 @@
         <!-- Custom styles for this template -->
         <link href="<%= request.getContextPath() %>/resources/assets/css/style.css" rel="stylesheet">
 
-		 <!-- Sweet Alert -->
-        <link href="<%= request.getContextPath() %>/resources/assets/plugins/sweet-alert2/sweetalert2.min.css" rel="stylesheet" type="text/css">
-		
-
-	<style type="text/css">
-	#detail_box{
-		display:none;
-	}
-	
-	</style>
-	
-	<script>
-		var msg = "<%= msg %>";
-		$(function(){
-		if(msg != "null"){
-			
-			$("#sa-success").click();
-			<% session.removeAttribute("msg"); %>
-		}
-		});
-		
-	</script>
-
-	<style type="text/css">
-		#sa-success{
-			display:none;
-		}
-		
-		img:hover{
-		cursor: pointer;
-		}
-		
-		#detail_box th{
-		background-color: #f9f9f9;
-		}
-		
-	</style>
-
-
 
 </head>
 <body>
@@ -90,7 +36,168 @@
 <div id="page-wrapper">
 
             <!-- Top Bar Start -->
-            <%@ include file="../common/topnavbar.jsp" %>
+            <div class="topbar">
+
+                <!-- LOGO -->
+                <div class="topbar-left">
+                    <div class="">
+                        <a href="index.html" class="logo">
+                            <img src="<%= request.getContextPath() %>/resources/assets/images/logo.png" alt="logo" class="logo-lg">
+                            <img src="<%= request.getContextPath() %>/resources/assets/images/logo_sm.png" alt="logo" class="logo-sm hidden">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Top navbar -->
+                <div class="navbar navbar-default" role="navigation">
+                    <div class="container">
+                        <div class="">
+
+                            <!-- Mobile menu button -->
+                            <div class="pull-left">
+                                <button type="button" class="button-menu-mobile visible-xs visible-sm">
+                                    <i class="fa fa-bars"></i>
+                                </button>
+                                <span class="clearfix"></span>
+                            </div>
+
+                            <!-- Top nav left menu -->
+                            <ul class="nav navbar-nav hidden-sm hidden-xs top-navbar-items">
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Help</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+
+                            <!-- Top nav Right menu -->
+                            <ul class="nav navbar-nav navbar-right top-navbar-items-right pull-right">
+                                <li class="hidden-xs">
+                                    <form role="search" class="navbar-left app-search pull-left">
+                                         <input type="text" placeholder="Search..." class="form-control">
+                                         <a href=""><i class="fa fa-search"></i></a>
+                                    </form>
+                                </li>
+                                <li class="dropdown top-menu-item-xs">
+                                    <a href="#" data-target="#" class="dropdown-toggle menu-right-item" data-toggle="dropdown" aria-expanded="true">
+                                        <i class="mdi mdi-bell"></i> <span class="label label-danger">3</span>
+                                    </a>
+                                    <ul class="dropdown-menu p-0 dropdown-menu-lg">
+                                        <!--<li class="notifi-title"><span class="label label-default pull-right">New 3</span>Notification</li>-->
+                                        <li class="list-group notification-list" style="height: 267px;">
+                                           <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 267px;"><div class="slimscroll" style="overflow: hidden; width: auto; height: 267px;">
+                                               <!-- list item-->
+                                               <a href="javascript:void(0);" class="list-group-item">
+                                                  <div class="media">
+                                                     <div class="media-left p-r-10">
+                                                        <em class="fa fa-diamond bg-primary"></em>
+                                                     </div>
+                                                     <div class="media-body">
+                                                        <h5 class="media-heading">A new order has been placed A new order has been placed</h5>
+                                                        <p class="m-0">
+                                                            <small>There are new settings available</small>
+                                                        </p>
+                                                     </div>
+                                                  </div>
+                                               </a>
+
+                                               <!-- list item-->
+                                               <a href="javascript:void(0);" class="list-group-item">
+                                                  <div class="media">
+                                                     <div class="media-left p-r-10">
+                                                        <em class="fa fa-cog bg-warning"></em>
+                                                     </div>
+                                                     <div class="media-body">
+                                                        <h5 class="media-heading">New settings</h5>
+                                                        <p class="m-0">
+                                                            <small>There are new settings available</small>
+                                                        </p>
+                                                     </div>
+                                                  </div>
+                                               </a>
+
+                                               <!-- list item-->
+                                               <a href="javascript:void(0);" class="list-group-item">
+                                                  <div class="media">
+                                                     <div class="media-left p-r-10">
+                                                        <em class="fa fa-bell-o bg-custom"></em>
+                                                     </div>
+                                                     <div class="media-body">
+                                                        <h5 class="media-heading">Updates</h5>
+                                                        <p class="m-0">
+                                                            <small>There are <span class="text-primary font-600">2</span> new updates available</small>
+                                                        </p>
+                                                     </div>
+                                                  </div>
+                                               </a>
+
+                                               <!-- list item-->
+                                               <a href="javascript:void(0);" class="list-group-item">
+                                                  <div class="media">
+                                                     <div class="media-left p-r-10">
+                                                        <em class="fa fa-user-plus bg-danger"></em>
+                                                     </div>
+                                                     <div class="media-body">
+                                                        <h5 class="media-heading">New user registered</h5>
+                                                        <p class="m-0">
+                                                            <small>You have 10 unread messages</small>
+                                                        </p>
+                                                     </div>
+                                                  </div>
+                                               </a>
+
+                                                <!-- list item-->
+                                               <a href="javascript:void(0);" class="list-group-item">
+                                                  <div class="media">
+                                                     <div class="media-left p-r-10">
+                                                        <em class="fa fa-diamond bg-primary"></em>
+                                                     </div>
+                                                     <div class="media-body">
+                                                        <h5 class="media-heading">A new order has been placed A new order has been placed</h5>
+                                                        <p class="m-0">
+                                                            <small>There are new settings available</small>
+                                                        </p>
+                                                     </div>
+                                                  </div>
+                                               </a>
+
+                                               <!-- list item-->
+                                               <a href="javascript:void(0);" class="list-group-item">
+                                                  <div class="media">
+                                                     <div class="media-left p-r-10">
+                                                        <em class="fa fa-cog bg-warning"></em>
+                                                     </div>
+                                                     <div class="media-body">
+                                                        <h5 class="media-heading">New settings</h5>
+                                                        <p class="m-0">
+                                                            <small>There are new settings available</small>
+                                                        </p>
+                                                     </div>
+                                                  </div>
+                                               </a>
+                                           </div><div class="slimScrollBar" style="background: rgb(158, 165, 171); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div><div class="slimScrollRail" style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
+                                        </li>
+                                        <!--<li>-->
+                                            <!--<a href="javascript:void(0);" class="list-group-item text-right">-->
+                                                <!--<small class="font-600">See all notifications</small>-->
+                                            <!--</a>-->
+                                        <!--</li>-->
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown top-menu-item-xs">
+                                    <a href="" class="dropdown-toggle menu-right-item profile" data-toggle="dropdown" aria-expanded="true"><img src="<%= request.getContextPath() %>/resources/assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle"> </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="javascript:void(0)"><i class="ti-user m-r-10"></i> Profile</a></li>
+                                        <li><a href="javascript:void(0)"><i class="ti-settings m-r-10"></i> Settings</a></li>
+                                        <li><a href="javascript:void(0)"><i class="ti-lock m-r-10"></i> Lock screen</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="javascript:void(0)"><i class="ti-power-off m-r-10"></i> Logout</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div> <!-- end container -->
+                </div> <!-- end navbar -->
+            </div>
             <!-- Top Bar End -->
 
 
@@ -98,7 +205,72 @@
             <div class="page-contentbar">
 
                 <!--left navigation start-->
-                 <%@ include file="../common/adminSidebar.jsp" %>
+                <aside class="sidebar-navigation">
+                    <div class="scrollbar-wrapper">
+                        <div>
+                            <button type="button" class="button-menu-mobile btn-mobile-view visible-xs visible-sm">
+                                <i class="mdi mdi-close"></i>
+                            </button>
+                            <!-- User Detail box -->
+                            <div class="user-details">
+                                <div class="pull-left">
+                                    <img src="<%= request.getContextPath() %>/resources/assets/images/users/avatar-1.jpg" alt="" class="thumb-md img-circle">
+                                </div>
+                                <div class="user-info">
+                                    <a href="#">Stanley Jones</a>
+                                    <p class="text-muted m-0">Administrator</p>
+                                </div>
+                            </div>
+                            <!--- End User Detail box -->
+
+                            <!-- Left Menu Start -->
+                            <ul class="metisMenu nav" id="side-menu">
+                                <li><a href="<%= request.getContextPath() %>"><i class="ti-home"></i> 관리자 메인 </a></li>
+
+                                <li><a href="<%= request.getContextPath() %>/reservation.li"><span class="label label-custom pull-right">11</span> <i class="ti-paint-bucket"></i> 예약관리 </a></li>
+
+                                <li>
+                                    <a href="javascript: void(0);" aria-expanded="true"><i class="ti-light-bulb"></i> 게시판 관리 <span class="fa arrow"></span></a>
+                                    <ul class="nav-second-level nav collapse" aria-expanded="false">
+                                        <li><a href="components-range-slider.html">게시글 관리</a></li>
+                                        <li><a href="components-alerts.html">댓글 관리</a></li>
+                            
+                                    </ul>
+                                </li>
+
+                                <li><a href="<%= request.getContextPath() %>/userGrade.li"><i class="ti-spray"></i> 회원등급관리 </a></li>
+
+                                <li>
+                                    <a href="javascript: void(0);" aria-expanded="true"><i class="ti-pencil-alt"></i> 공지사항 및 문의답변 <span class="fa arrow"></span></a>
+                                    <ul class="nav-second-level nav collapse" aria-expanded="false">
+                                        <li><a href="forms-general.html">공지사항</a></li>
+                                        <li><a href="forms-advanced.html">문의답변</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="">
+                                    <a href="javascript: void(0);" aria-expanded="false"><i class="ti-menu-alt"></i> 매출내역확인 <span class="fa arrow"></span></a>
+                                    <ul class="nav-second-level nav collapse" aria-expanded="false" style="height: 0px;">
+                                        <li><a href="tables-basic.html">전체 매출내역</a></li>
+                                        <li><a href="tables-advanced.html">사업장별 매출내역</a></li>
+                                    </ul>
+                                </li>
+
+                           
+                                <li class="">
+                                    <a href="javascript: void(0);" aria-expanded="false"><i class="ti-files"></i> 사업장 관리 <span class="fa arrow"></span></a>
+                                    <ul class="nav-second-level nav collapse" aria-expanded="false" style="height: 0px;">
+                                        <li><a href="campList.cl">사업장 승인</a></li>
+                                        <li><a href="pages-register.html">사업장 메뉴2</a></li>
+                                        <li><a href="pages-forget-password.html">사업장 메뉴3</a></li>          
+                                    </ul>
+                                </li>
+
+         
+                            </ul>
+                        </div>
+                    </div><!--Scrollbar wrapper-->
+                </aside>
                 <!--left navigation end-->
 
                 <!-- START PAGE CONTENT -->
@@ -107,110 +279,30 @@
                     <div class="container">
                         <div class="row">
 							<div class="col-sm-12">
-							
-								<h4 class="m-t-0 header-title">사업장 관리 메뉴</h4>
-
-                                <div class="table-responsive m-b-20">
-                                    <h5><b>사업장 승인 신청 내역</b></h5>
-                                    <p class="text-muted font-13 m-b-30">
-                                        현재 오또캠핑에 등록하고자 하는 사업장들의 내역이 나타납니다.
-                 <br> 승인대기는 사업자가 신청서를 작성하고 관리자의 최종 승인을 기다리는 단계입니다.
-                 <br> 상세보기를 하면 승인 대기 중인 사업장을 승인할 수 있습니다.      
-                                    </p>
-
-                                    <table id="datatable" class="table table-striped table-bordered">
-                                        <thead>
-                                        <tr>
-                                            <th>신청번호</th>
-                                            <th>캠핑장명</th>
-                                            <th>주소</th>
-                                            <th>연락처</th>
-                                            <th>사업자명</th>
-                                            <th>상세보기</th>
-                                        </tr>
-                                        </thead>
-
-                                        <tbody>
-                                        <% for(CampInfo ci : cList){ %>
-											<tr id="usergrade">
-												<input type="hidden" value="<%= ci.getcCode() %>">
-												<td><%= index++ %></td>
-												<td><%= ci.getcName() %></td>
-												<td><%= ci.getcAddress() %></td>
-												<td><%= ci.getcPhone() %></td>
-												<td><%= ci.getcOperName() %></td>
-												<td><button class="btn btn-primary btn-xs" type="button" onclick="update(this);">상세보기</button></td>	
-											</tr>
-										<%} %>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                
+								<%= cList.get(0).getcName() %>
 							</div>
 						</div>
                         <!--end row -->
 
-                        <div class="row" id="detail_box">
-                            <div class="col-sm-12"> 
-                                <h4 class="m-t-0 header-title">사업장 상세 내역</h4>
-                               	 <table class="table table-bordered m-0">
-												<input type="hidden" value="" id="code">
-                                                <thead>
-                                                    <tr>
-                                                        <th >캠핑장명</th>
-                                                        <td id="campName"></td>
-                                                		<th >전화번호</th>
-                                                		<td id="phone"></td>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th >주소</th>
-                                                        <td colspan="3" id="adderess"></td>
-                                                        
-                                                    </tr>
-                                                    <tr>
-                                                        <th >홈페이지</th>
-                                                        <td id="homepage"></td>
-                                                        <th >테마</th>
-                                                        <td id="tema"></td>     
-                                                    </tr>
-                                                    <tr>
-                                                        <th >포스팅 서비스 제휴 여부</th>
-                                                        <td id="post"></td>
-                                                        <th >예약시작가능일</th>
-                                                        <td id="reDay"></td> 
-                                                    </tr>  
-                                                    <tr>
-                                                     <th >시설현황</th>
-                                                     <td colspan="3" id="now"></td>
-                                                    </tr>
-                                                    <tr>
-                                                     <th >환불규정</th>
-                                                     <td colspan="3" id="refund"></td>
-                                                    </tr>
-                                                    <tr>
-                                                     <th >기타제안</th>
-                                                     <td colspan="3" id="etc"></td>
-                                                    </tr>
-                       								<tr>
-                                                     <th>첨부사진</th>
-                                                     <td colspan="3" id="picture"></td>
-                                                    </tr>
-                       
-                                                </tbody>
-                                            </table>
+
+                        <div class="row">
+                            <div class="col-lg-6">
                                 
-                                <br>
-                                <div style="float: right;">
-      							<button class="btn btn-primary btn" type="button" onclick="approval(this);" style="">승인하기</button>
-      							<button class="btn btn-dark btn" type="button" onclick="closeBtn(this);">닫기</button>
-      							</div>
-      							<button class="btn btn-default waves-effect waves-light btn-sm" id="sa-success" >Click me</button>
+                            </div> <!-- end col -->
+
+                            <div class="col-lg-6">
+                                
+                            </div> <!-- end col -->
+                        </div> <!-- end row -->
+
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                
                             </div>
                         </div>
-						
-					
+
+
                     </div>
                     <!-- end container -->
 
@@ -231,125 +323,6 @@
         </div>
 
 
-
-		<script type="text/javascript">
-		
-
-		function closeBtn(){
-			
-			$("#detail_box").css("display","none");
-		}
-		
-		code = 0;
-		
-		function update(value){
-			
-			$("#detail_box").css("display","block");
-			
-			$("#campName").html('');
-			$("#phone").html('');
-			$("#adderess").html('');
-			$("#homepage").html('');
-			$("#tema").html('');
-			$("#post").html('');
-			$("#reDay").html('');
-			$("#now").html('');
-			$("#refund").html('');
-			$("#etc").html('');
-			$("#picture").html('');
-			$("#code").val('');
-			
-			
-			
-			var cNo = $(value).parent().parent().children().eq(0).val();
-						
-			<% for(CampInfo ca : cList) {%>
-			
-				if(cNo == (<%= ca.getcCode() %> +"")){
-					
-					code = <%= ca.getcCode() %>
-					var $td1 = $("<td>").text("<%= ca.getcName() %>");
-					var $td2 = $("<td>").text("<%= ca.getcAddress() %>");
-					var $td3 = $("<td>").text("<%= ca.getcPhone() %>");
-					var $td4 = $("<td>").text("<%= ca.getcUrl() %>");
-					var $td5 = $("<td>");
-				
-					var $td6 = $("<td>").text("<%= ca.getcTheme() %>");
-					var $td7 = $("<td>").text("<%= ca.getcOption() %>");
-					var $td8 = $("<td>").text("<%= ca.getcAvailableDate() %>");
-					var $td9 = $("<td>").text("<%= ca.getcPosting() %>");
-					var $td10 = $("<td>").text("<%= ca.getcRefundment() %>");
-					var $td11 = $("<td>").text("<%= ca.getcEtc() %>");
-								
-					
-					<% for(int i = 0; i < aList.size(); i++) { %>
-					
-					if(cNo == <%= aList.get(i).getcCode() %>){
-					
-					var $liImg = $("<img src='<%= request.getContextPath() + aList.get(i).getFilePath() + aList.get(i).getChangeName() %>' width='300px' height='200px' onclick='test(this);'>");	
-						
-						$td5.append($liImg);
-											
-					}
-										
-					<% } %>
-					
-					
-					$("#code").val(code);
-					$("#campName").append($td1);
-					$("#phone").append($td3);
-					$("#adderess").append($td2);
-					$("#homepage").append($td4);
-					$("#tema").append($td6);
-					$("#post").append($td9);
-					$("#reDay").append($td8);
-					$("#now").append($td7);
-					$("#refund").append($td10);
-					$("#etc").append($td11);
-					$("#picture").append($td5);
-		
-					       
-				}
-			
-			<%} %>
-				
-		}
-		
-
-		function approval(value){
-			
-			if(confirm("정말로 승인하시겠습니까?")){
-			location.href = "<%= request.getContextPath() %>/update.ca?cNo="+code;
-			}
-	
-		}
-		
-
-		function test(value){
-			
-			 var src = $(value).attr('src');
-			 
-			 img1= new Image(); 
-			 img1.src=(src); 
-			 
-			 W=img1.width; 
-			 H=img1.height; 
-			 O="width="+W+",height="+H+",scrollbars=yes"; 
-	 		 
-			 imgWin=window.open("","",O); 
-			 imgWin.document.write("<html><head><title>:*:*:*: 이미지상세보기 :*:*:*:*:*:*:</title></head>");
-			 imgWin.document.write("<body topmargin=0 leftmargin=0>");
-			 imgWin.document.write("<img src="+src+" onclick='self.close()' style='cursor:pointer;' title ='클릭하시면 창이 닫힙니다.'>");
-			 imgWin.document.close();
-	
-			
-		}
-	
-		
-		
-		</script>
-
-
         <!-- js placed at the end of the document so the pages load faster -->
         <script src="<%= request.getContextPath() %>/resources/assets/js/jquery-2.1.4.min.js"></script>
         <script src="<%= request.getContextPath() %>/resources/assets/js/bootstrap.min.js"></script>
@@ -359,32 +332,7 @@
         <!-- App Js -->
         <script src="<%= request.getContextPath() %>/resources/assets/js/jquery.app.js"></script>
 
-		<!-- Datatable js -->
-        <script src="<%= request.getContextPath() %>/resources/assets/plugins/datatables/jquery.dataTables.min.js"></script>
-        <script src="<%= request.getContextPath() %>/resources/assets/plugins/datatables/dataTables.bootstrap.js"></script>
-        <script src="<%= request.getContextPath() %>/resources/assets/plugins/datatables/dataTables.buttons.min.js"></script>
-        <script src="<%= request.getContextPath() %>/resources/assets/plugins/datatables/buttons.bootstrap.min.js"></script>
-        <script src="<%= request.getContextPath() %>/resources/assets/plugins/datatables/jszip.min.js"></script>
-        <script src="<%= request.getContextPath() %>/resources/assets/plugins/datatables/pdfmake.min.js"></script>
-        <script src="<%= request.getContextPath() %>/resources/assets/plugins/datatables/vfs_fonts.js"></script>
-        <script src="<%= request.getContextPath() %>/resources/assets/plugins/datatables/buttons.html5.min.js"></script>
-        <script src="<%= request.getContextPath() %>/resources/assets/plugins/datatables/buttons.print.min.js"></script>
-        <script src="<%= request.getContextPath() %>/resources/assets/plugins/datatables/dataTables.keyTable.min.js"></script>
-        <script src="<%= request.getContextPath() %>/resources/assets/plugins/datatables/dataTables.responsive.min.js"></script>
-        <script src="<%= request.getContextPath() %>/resources/assets/plugins/datatables/responsive.bootstrap.min.js"></script>
-        <script src="<%= request.getContextPath() %>/resources/assets/plugins/datatables/dataTables.scroller.min.js"></script>
-        <script src="<%= request.getContextPath() %>/resources/assets/plugins/datatables/dataTables.colVis.js"></script>
-        <script src="<%= request.getContextPath() %>/resources/assets/plugins/datatables/dataTables.fixedColumns.min.js"></script>
 		
-		<!-- init -->
-        <script src="<%= request.getContextPath() %>/resources/assets/pages/jquery.datatables.init.js"></script>
-
-		<!-- Sweet-Alert  -->
-        <script src="<%= request.getContextPath() %>/resources/assets/plugins/sweet-alert2/sweetalert2.min.js"></script>
-        <script src="<%= request.getContextPath() %>/resources/assets/pages/jquery.sweet-alert.init.js"></script>
-
-        <!-- App Js -->
-        <script src="<%= request.getContextPath() %>/resources/assets/js/jquery.app.js"></script>
 		
 
 </body>

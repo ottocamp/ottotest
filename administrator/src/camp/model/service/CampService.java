@@ -20,59 +20,23 @@ public class CampService {
 		
 		return cList;
 	}
-
-	public ArrayList<Attachment> selectAttachmentList() {
+	
+	// 캠핑장 정보 등록 insert 서비스
+	public int insertCamp(CampInfo c) {
 		Connection conn = getConnection();
 		
-		ArrayList<Attachment> aList = new CampDao().selectAttachmentList(conn);
-		
-		close(conn);
-		
-		return aList;
-	}
-
-	public int campApproval(int cNo) {
-		Connection conn = getConnection();
-		
-		int result = new CampDao().campApproval(conn, cNo);
+		int result = new CampDao().insertCamp(conn, c);
 		
 		if(result > 0) {
-			commit(conn);			
-		}else {
+			commit(conn);
+		} else {
 			rollback(conn);
 		}
-		close(conn);
 		
+		close(conn);
 		
 		return result;
 	}
-
-	public ArrayList<CampInfo> selectDetailList() {
-		
-		Connection conn = getConnection();
-		
-		ArrayList<CampInfo> cList = new CampDao().selectDetailList(conn);
-		
-		close(conn);
-			
-		return cList;
-	}
-
-	public int campCancel(int code) {
-		
-		Connection conn = getConnection();
-		
-		int result = new CampDao().campCancel(conn, code);
-		
-		if(result > 0) {
-			commit(conn);			
-		}else {
-			rollback(conn);
-		}
-		close(conn);
-		
-		
-		return result;
-	}
+	
 
 }

@@ -1,10 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="user.model.vo.*"%>
-<%
-	
-	User loginUser = (User)session.getAttribute("loginUser");
-
-%>  
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,13 +25,6 @@
         <link href="<%= request.getContextPath() %>/resources/assets/css/icons.css" rel="stylesheet">
         <!-- Custom styles for this template -->
         <link href="<%= request.getContextPath() %>/resources/assets/css/style.css" rel="stylesheet">
-	<style >
-
-	
-		
-	
-	
-	</style>
 
 
 </head>
@@ -50,7 +38,7 @@
                 <!-- LOGO -->
                 <div class="topbar-left">
                     <div class="">
-                        <a href="<%= request.getContextPath() %>" class="logo">
+                        <a href="index.html" class="logo">
                             <img src="<%= request.getContextPath() %>/resources/assets/images/logo.png" alt="logo" class="logo-lg">
                             <img src="<%= request.getContextPath() %>/resources/assets/images/logo_sm.png" alt="logo" class="logo-sm hidden">
                         </a>
@@ -240,14 +228,11 @@
                                 <li><a href="<%= request.getContextPath() %>/views/user/userUpdate.jsp"> <i class="ti-paint-bucket"></i> 개인 정보 수정 </a></li>
 
                                 <li>
-                                    <a href="<%= request.getContextPath() %>/views/user/userUsed.jsp"><i class="ti-light-bulb"></i> 이용내역</a>
+                                    <a href="javascript: void(0);" aria-expanded="true"><i class="ti-light-bulb"></i> 이용내역</a>
 
                                 </li>
-                                
-                                <li><a href="<%= request.getContextPath() %>/views/user/userFavorite.jsp"><i class="ti-spray"></i> 나의 관심 캠핑장</a></li>
 
-                                <li><a href="<%= request.getContextPath() %>/ipinfo.user?uno=<%= loginUser.getUserNo() %>"><i
-									class="ti-spray"></i> 로그인 관리 </a></li>
+                                <li><a href="<%= request.getContextPath() %>/userGrade.li"><i class="ti-spray"></i> 로그인 관리 </a></li>
 
                                 <li>
                                     <a href="javascript: void(0);" aria-expanded="true"><i class="ti-pencil-alt"></i> 리뷰 및 메모</a>
@@ -263,218 +248,86 @@
                 <!-- START PAGE CONTENT -->
                 <div id="page-right-content">
 
-<div class="container">
+                    <div class="container">
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="p-0 text-center">
-                                    <div class="member-card">
-                                        <div class="thumb-xl member-thumb m-b-10 center-block">
-                                            <img src="<%= request.getContextPath() %>/resources/user/images/users/bs.jpg" class="img-circle img-thumbnail" alt="profile-image" width="70px" height="90px">
-                               
-                                        </div>
+							<div class="row">
+                                    <div class="col-md-6">
+                                        <form class="form-horizontal" role="form">                            
+                                        	<h2 align="center" style="color:green">  회원 정보 수정</h2>
+                                        	<br>
+                                        	<div class="form-group">
+                                                <label class="col-md-2 control-label">이름</label>
+                                                <div class="col-md-10">
+                                                    <input type="text" class="form-control" value="" placeholder="이름이 입력되는 공간" disabled="disabled">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">이름</label>
+                                                <div class="col-md-10">
+                                                    <input type="text" class="form-control" value="김두한" placeholder="이름이 입력되는 공간" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">아이디</label>
+                                                <div class="col-md-10">
+                                                    <input type="text" class="form-control" value="" placeholder="아이디가 입력되는 공간" readonly="readonly">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label" for="example-email">Email</label>
+                                                <div class="col-md-10">
+                                                    <input type="email" id="example-email" name="example-email" class="form-control" placeholder="Email">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">Password</label>
+                                                <div class="col-md-10">
+                                                    <input type="password" class="form-control" value="password">
+                                                </div>
+                                            </div>
 
-                                        <div class="">
-                                            <h4 class="m-b-5">조배성</h4>
-                                            <p class="text-muted">@대통령</p>
-                                        </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">Placeholder</label>
+                                                <div class="col-md-10">
+                                                    <input type="text" class="form-control" placeholder="placeholder">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">Text area</label>
+                                                <div class="col-md-10">
+                                                    <textarea class="form-control" rows="5"></textarea>
+                                                </div>
+                                            </div>
 
-                                        <p class="text-muted m-t-10">
-                                            	내가 가는 길이 곧 길이다
-                                        </p>
-  
 
+
+                                        </form>
                                     </div>
+                                   
 
-                                </div> <!-- end card-box -->
+                                </div>
+						</div>
+                        <!--end row -->
 
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                
+                            </div> <!-- end col -->
+
+                            <div class="col-lg-6">
+                                
                             </div> <!-- end col -->
                         </div> <!-- end row -->
 
-                        <div class="m-t-30">
-                            
-                            <div class="tab-content">
-                                <div class="tab-pane" id="home-b1">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <!-- Personal-Information -->
-                                            <div class="panel panel-default panel-fill">
-                                                <div class="panel-heading">
-                                                    <h3 class="panel-title">Personal Information</h3>
-                                                </div>
-                                                <div class="panel-body">
-                                                    <div class="m-b-20">
-                                                        <strong>이름</strong>
-                                                        <br>
-                                                        <p class="text-muted">Johnathan Deo</p>
-                                                    </div>
-                                                    <div class="m-b-20">
-                                                        <strong>Mobile</strong>
-                                                        <br>
-                                                        <p class="text-muted">(123) 123 1234</p>
-                                                    </div>
-                                                    <div class="m-b-20">
-                                                        <strong>Email</strong>
-                                                        <br>
-                                                        <p class="text-muted">johnath@domain.com</p>
-                                                    </div>
-                                                    <div class="about-info-p m-b-0">
-                                                        <strong>Location</strong>
-                                                        <br>
-                                                        <p class="text-muted">USA</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Personal-Information -->
 
-                                            <!-- Social -->
-                                            <div class="panel panel-default panel-fill">
-                                                <div class="panel-heading">
-                                                    <h3 class="panel-title">Social</h3>
-                                                </div>
-                                                <div class="panel-body">
-                                                    <ul class="social-links list-inline m-b-0">
-                                                        <li>
-                                                            <a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-facebook"></i></a>
-                                                        </li>
-                                                        <li>
-                                                            <a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a>
-                                                        </li>
-                                                        <li>
-                                                            <a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Skype"><i class="fa fa-skype"></i></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <!-- Social -->
-                                        </div>
-
-
-                                        <div class="col-md-8">
-                                            <!-- Personal-Information -->
-                                            <div class="panel panel-default panel-fill">
-                                                <div class="panel-heading">
-                                                    <h3 class="panel-title">Biography</h3>
-                                                </div>
-                                                <div class="panel-body">
-                                                    <h5 class="header-title text-uppercase">About</h5>
-                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                        industry. Lorem Ipsum has been the industry's standard dummy
-                                                        text ever since the 1500s, when an unknown printer took a galley
-                                                        of type and scrambled it to make a type specimen book. It has
-                                                        survived not only five centuries, but also the leap into
-                                                        electronic typesetting, remaining essentially unchanged.</p>
-
-                                                    <p><strong>But also the leap into electronic typesetting, remaining
-                                                        essentially unchanged.</strong></p>
-
-                                                    <p>It was popularised in the 1960s with the release of Letraset
-                                                        sheets containing Lorem Ipsum passages, and more recently with
-                                                        desktop publishing software like Aldus PageMaker including
-                                                        versions of Lorem Ipsum.</p>
-
-                                                    <div class="">
-
-                                                        <h5 class="header-title text-uppercase m-t-30 m-b-20">Skills</h5>
-
-                                                        <div class="m-b-15">
-                                                            <h5>Angular Js <span class="pull-right">60%</span></h5>
-                                                            <div class="progress">
-                                                                <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                                                    <span class="sr-only">60% Complete</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="m-b-15">
-                                                            <h5>Javascript <span class="pull-right">90%</span></h5>
-                                                            <div class="progress">
-                                                                <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
-                                                                    <span class="sr-only">90% Complete</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="m-b-15">
-                                                            <h5>Wordpress <span class="pull-right">80%</span></h5>
-                                                            <div class="progress">
-                                                                <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                                                    <span class="sr-only">80% Complete</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="m-b-0">
-                                                            <h5>HTML5 &amp; CSS3 <span class="pull-right">95%</span>
-                                                            </h5>
-                                                            <div class="progress m-b-0">
-                                                                <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%">
-                                                                    <span class="sr-only">95% Complete</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Personal-Information -->
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="tab-pane active" id="profile-b1">
-                                    <!-- Personal-Information -->
-                                    <div class="panel panel-default panel-fill">
-                                        <div class="panel-heading">
-                                            <h3 class="panel-title">정보 수정</h3>
-                                        </div>
-                                        <div class="panel-body">
-                                            <form role="form">
-                                                <div class="form-group">
-                                                    <label for="FullName">이름</label>
-                                                    <input type="text" value="" id="FullName" class="form-control" readonly>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="Email">아이디</label>
-                                                    <input type="email" value="" id="Email" class="form-control" readonly>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="Usermail">이메일</label>
-                                                    <input type="email" value="" id="Usermail" class="form-control"> 
-                                                    
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="Username">전화번호</label>
-                                                    <input type="email" value="" id="Username" class="form-control">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="Password">비밀번호</label>
-                                                    <input type="password" placeholder="6 - 15 Characters" id="Password" class="form-control">
-                                                    <p class="email" style="color: green">&nbsp;</p>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="RePassword">비밀번호 확인</label>
-                                                    <input type="password" placeholder="6 - 15 Characters" id="RePassword" class="form-control">
-                                                    <p class="email" style="color: red">&nbsp;</p>
-                                                </div>
-                                                <button class="btn btn-primary waves-effect waves-light w-md" type="submit">변경하기</button>
-                                            </form>
-
-                                        </div>
-                                    </div>
-                                    <!-- Personal-Information -->
-                                    
-                                    <script>
-                                    	$("#FullName").val("<%=loginUser.getUserName() %>");
-                                    
-                                    </script>
-                                    
-                                    
-                                    
-                                    
-                                </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                
                             </div>
                         </div>
+
+
                     </div>
                     <!-- end container -->
 
