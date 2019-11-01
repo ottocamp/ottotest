@@ -17,16 +17,17 @@ public class User implements Serializable {
 	private String userPwd;
 	private String phone;
 	private String email;
-	private Date birthDate;
+	private String birthDate;
+	private String gender;
 	private String forignYN;
 	private String status;
 	private String grade;
-	private Date joinDate;
+	private String joinDate;
 	
 	public User() {}
 
 	public User(int userNo, String userType, String userId, String userName, String userPwd, String phone, String email,
-			Date birthDate, String forignYN, String status, String grade, Date joinDate) {
+			String birthDate, String gender, String forignYN, String status, String grade, String joinDate) {
 		super();
 		this.userNo = userNo;
 		this.userType = userType;
@@ -36,6 +37,7 @@ public class User implements Serializable {
 		this.phone = phone;
 		this.email = email;
 		this.birthDate = birthDate;
+		this.gender = gender;
 		this.forignYN = forignYN;
 		this.status = status;
 		this.grade = grade;
@@ -98,12 +100,20 @@ public class User implements Serializable {
 		this.email = email;
 	}
 
-	public Date getBirthDate() {
+	public String getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(Date birthDate) {
+	public void setBirthDate(String birthDate) {
 		this.birthDate = birthDate;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 	public String getForignYN() {
@@ -130,20 +140,28 @@ public class User implements Serializable {
 		this.grade = grade;
 	}
 
-	public Date getJoinDate() {
+	public String getJoinDate() {
 		return joinDate;
 	}
 
-	public void setJoinDate(Date joinDate) {
+	public void setJoinDate(String joinDate) {
 		this.joinDate = joinDate;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	@Override
 	public String toString() {
 		return "User [userNo=" + userNo + ", userType=" + userType + ", userId=" + userId + ", userName=" + userName
 				+ ", userPwd=" + userPwd + ", phone=" + phone + ", email=" + email + ", birthDate=" + birthDate
-				+ ", forignYN=" + forignYN + ", status=" + status + ", grade=" + grade + ", joinDate=" + joinDate + "]";
-	};
+				+ ", gender=" + gender + ", forignYN=" + forignYN + ", status=" + status + ", grade=" + grade
+				+ ", joinDate=" + joinDate + "]";
+	}
+
+
+
 	
 	
 	

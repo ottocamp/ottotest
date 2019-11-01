@@ -91,11 +91,84 @@ public class ReservationDao {
 		return result;
 	}
 
-	
-	
-	
-	
-	
-	
+
+	public ArrayList<Reservation> SelectAvailList(Connection conn) {
+		PreparedStatement pstmt = null;
+		ArrayList<Reservation> rList = new ArrayList<Reservation>();
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectAvailReservation");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Reservation re = new Reservation(rset.getInt("RE_NO"),
+												rset.getDate("PAYMENT_DATE"),
+												rset.getString("USER_NAME"),
+												rset.getString("PHONE"),
+												rset.getString("RE_DATE"),
+												rset.getInt("RE_COST"),
+												rset.getInt("RE_STATUS") + "",
+												rset.getString("CAMP_NAME"));
+				
+				rList.add(re);
+				
+			}
+					
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+
+		return rList;
+	}
+
+
+	public ArrayList<Reservation> SelectDeleteList(Connection conn) {
+		
+		PreparedStatement pstmt = null;
+		ArrayList<Reservation> rList = new ArrayList<Reservation>();
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectDeleteReservation");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Reservation re = new Reservation(rset.getInt("RE_NO"),
+												rset.getDate("PAYMENT_DATE"),
+												rset.getString("USER_NAME"),
+												rset.getString("PHONE"),
+												rset.getString("RE_DATE"),
+												rset.getInt("RE_COST"),
+												rset.getInt("RE_STATUS") + "",
+												rset.getString("CAMP_NAME"));
+				
+				rList.add(re);
+				
+			}
+					
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+
+		return rList;
+	}
+
 	
 }

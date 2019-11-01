@@ -91,13 +91,14 @@ public class UserDao {
 								rset.getString("USER_PWD"),
 								rset.getString("PHONE"),
 								rset.getString("EMAIL"),
-								rset.getDate("BIRTHDATE"),
+								rset.getString("BIRTHDATE"),
+								rset.getString("GENDER"),
 								rset.getString("FORIGNYN"),
 								rset.getString("STATUS"),
 								rset.getString("GRADE"),
-								rset.getDate("JOIN_DATE")
+								rset.getString("JOIN_DATE")
 						);
-				
+	
 
 			}
 			

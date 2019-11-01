@@ -34,4 +34,26 @@ public class ReservationService {
 		return result;
 	}
 
+	public ArrayList<Reservation> SelectAvailList() {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Reservation> rList = new ReservationDao().SelectAvailList(conn);
+		
+		close(conn);
+		
+		return rList;
+	}
+
+	public ArrayList<Reservation> SelectDeleteList() {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Reservation> rList = new ReservationDao().SelectDeleteList(conn);
+		
+		close(conn);
+		
+		return rList;
+	}
+
 }

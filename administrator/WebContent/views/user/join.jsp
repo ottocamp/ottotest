@@ -95,7 +95,7 @@
                                 <!-- Header -->
                                 <div class="py-30 text-center">
                                     
-                                    <img src="<%= request.getContextPath() %>/resources/login/assets/images/logo_dark.png?after" style="width: 120px; height: 100px">
+                                    <img src="<%= request.getContextPath() %>/resources/assets/images/logo_dark.png?after" style="width: 120px; height: 100px">
                                     
                                     <h1 class="h4 font-w700 mt-30 mb-10">회원가입</h1>
                                     <h2 class="h5 font-w400 text-muted mb-0"></h2>

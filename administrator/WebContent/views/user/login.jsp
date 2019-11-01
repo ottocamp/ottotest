@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String msg = (String)request.getAttribute("msg");
+	String joinMsg = (String)request.getAttribute("joinMsg");
+
 %>       
 <!DOCTYPE html>
 <html>
@@ -10,14 +11,14 @@
 <title>로그인 페이지</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
-	var msg = "<%= msg %>";
+	var joinMsg = "<%= joinMsg %>";
 	
 	$(function(){
-		if(msg != "null"){
-			alert(msg);
-		}
-		if(msg=="가입성공"){
-			window.close();
+		
+		
+		
+		if(joinMsg != "null"){
+			alert(joinMsg);
 		}
 	});
 </script>
@@ -31,16 +32,16 @@
         <meta content="Coderthemes" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-        <link rel="shortcut icon" href="<%= request.getContextPath() %>/resources/login/assets/images/favicon.ico">
+        <link rel="shortcut icon" href="<%= request.getContextPath() %>/resources/assets/images/favicon.ico">
 
         <!-- Bootstrap core CSS -->
-        <link href="<%= request.getContextPath() %>/resources/login/assets/css/bootstrap.min.css?after" rel="stylesheet">
+        <link href="<%= request.getContextPath() %>/resources/assets/css/bootstrap.min.css?after" rel="stylesheet">
         <!-- MetisMenu CSS -->
-        <link href="<%= request.getContextPath() %>/resources/login/assets/css/metisMenu.min.css?after" rel="stylesheet">
+        <link href="<%= request.getContextPath() %>/resources/assets/css/metisMenu.min.css?after" rel="stylesheet">
         <!-- Icons CSS -->
-        <link href="<%= request.getContextPath() %>/resources/login/assets/css/icons.css?after" rel="stylesheet">
+        <link href="<%= request.getContextPath() %>/resources/assets/css/icons.css?after" rel="stylesheet">
         <!-- Custom styles for this template -->
-        <link href="<%= request.getContextPath() %>/resources/login/assets/css/style.css?after" rel="stylesheet">
+        <link href="<%= request.getContextPath() %>/resources/assets/css/style2.css?after" rel="stylesheet">
 
 		<style>
 			body{
@@ -69,7 +70,7 @@
                                 <div class="text-center">
                                     <h2 class="text-uppercase m-t-0 m-b-30">
                                         <a href="<%= request.getContextPath() %>" class="text-success">
-                                            <span><img src="<%= request.getContextPath() %>/resources/login/assets/images/logo_dark.png" alt="" height="70" width="150"></span>
+                                            <span><img src="<%= request.getContextPath() %>/resources/assets/images/logo_dark.png" alt="" height="70" width="150"></span>
                                         </a>
                                     </h2>
                                     <!--<h4 class="text-uppercase font-bold m-b-0">Sign In</h4>-->
@@ -208,13 +209,13 @@
 
 
         <!-- js placed at the end of the document so the pages load faster -->
-        <script src="<%= request.getContextPath() %>/resources/login/assets/js/jquery-2.1.4.min.js?after"></script>
-        <script src="<%= request.getContextPath() %>/resources/login/assets/js/bootstrap.min.js?after"></script>
-        <script src="<%= request.getContextPath() %>/resources/login/assets/js/metisMenu.min.js?after"></script>
-        <script src="<%= request.getContextPath() %>/resources/login/assets/js/jquery.slimscroll.min.js?after"></script>
+        <script src="<%= request.getContextPath() %>/resources/assets/js/jquery-2.1.4.min.js?after"></script>
+        <script src="<%= request.getContextPath() %>/resources/assets/js/bootstrap.min.js?after"></script>
+        <script src="<%= request.getContextPath() %>/resources/assets/js/metisMenu.min.js?after"></script>
+        <script src="<%= request.getContextPath() %>/resources/assets/js/jquery.slimscroll.min.js?after"></script>
 
         <!-- App Js -->
-        <script src="<%= request.getContextPath() %>/resources/login/assets/js/jquery.app.js?after"></script>
+        <script src="<%= request.getContextPath() %>/resources/assets/js/jquery.app.js?after"></script>
 
     </body>
 </html>
