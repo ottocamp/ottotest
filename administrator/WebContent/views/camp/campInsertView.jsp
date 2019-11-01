@@ -96,7 +96,7 @@
 							<div class="row">
 								<div class="col-md-6">
 									<form class="form-horizontal" role="form" id="campInsertForm"
-									action="<%= request.getContextPath() %>/insert.ca" method="post">
+									action="<%= request.getContextPath() %>/insert.ca" method="post"enctype="multipart/form-data">
 										
 										<div class="form-group">
 											<label class="col-md-2 control-label">캠핑장 이름</label>
@@ -313,12 +313,12 @@
 															<label class="col-md-2 control-label">포스팅 제휴 여부</label>
 
 															<div class="radio radio-info radio-inline">
-																<input type="radio" id="inlineRadio1" value="가입"
+																<input type="radio" id="inlineRadio1" value="1"
 																	name="posting" checked> <label
 																	for="inlineRadio1"> 유료 포스팅 서비스 가입 </label>
 															</div>
 															<div class="radio radio-inline">
-																<input type="radio" id="inlineRadio2" value="미가입"
+																<input type="radio" id="inlineRadio2" value="2"
 																	name="posting"> <label for="inlineRadio2">
 																	미가입 </label>
 															</div>
@@ -366,9 +366,21 @@
                                         <div class="form-group">
                                             <label class="control-label">사업자 등록증 첨부</label>
                                             <input type="file" class="filestyle" data-buttonname="btn-default" id="campPic6" name="campPic6">
-                                        </div>					
+                                        </div>	
+                                        
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <button type="submit" class="btn btn-default waves-effect waves-light btn-sm"
+                                                    id="joinBtn">등록 신청</button>
+                                                    
+                                                
+                                            </div>
+                                            <!-- end col -->
+                                    
+                                        </div>
+                                        <!-- end row -->
 												
-																						
+									</form>													
 									
 								</div>
 							</div>
@@ -383,17 +395,7 @@
 			<!-- end row -->
 
 
-		<div class="row">
-			<div class="col-lg-6">
-				<button type="submit" class="btn btn-default waves-effect waves-light btn-sm"
-					id="joinBtn">등록 신청</button>
-					
-					
-			</div>
-			<!-- end col -->
-	
-		</div>
-		<!-- end row -->
+		
 
 
 		<div class="row">
