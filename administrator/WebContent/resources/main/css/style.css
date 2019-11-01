@@ -71,9 +71,8 @@ article, aside, address, section, video, audio {
 	outline: 0;
 	-webkit-font-smoothing: antialiased;
 	-ms-word-wrap: break-word;
-		word-wrap: break-word;
-		
-}	
+	    word-wrap: break-word;
+}
 html, body {
 	margin: 0;
 	padding: 0;
@@ -1004,17 +1003,17 @@ section.no_padding_lr > .container{
 
 /* Boxed style for articles and sidebar */
 .page_content_wrap {
-    padding:0;
+    padding: 40px 0 60px;
 }
 .body_style_fullscreen .page_content_wrap {
 	padding:0;
 }
 .body_style_fullscreen.template_extra .page_content_wrap {
-    padding: 0;
+    padding: 40px 0 0;
 }
 
 .article_style_boxed .sidebar {
-    padding:0;
+    padding:0 20px 1.875em;
 }
 .body_style_fullscreen .content > article.page {
 	padding:0;
@@ -1183,7 +1182,7 @@ section.no_padding_lr > .container{
 	z-index:10000;
 }
 
-/* Main menu slider
+/* Main menu slider */
 .menu_main_wrap .menu_main_nav > li#blob {
 	position: absolute;
 	top: 0;
@@ -1196,14 +1195,13 @@ section.no_padding_lr > .container{
 	-webkit-box-shadow: none;
 	-moz-box-shadow:    none;
 	box-shadow:         none;
-} */
+}
 
 
 /* Menu positions */
 
 .menu_content_wrap {
-	max-width: 1900px;
-	height: 250px;
+    max-width: 1700px;
     margin: 0 auto;
     padding: 0 100px;
 }
@@ -1510,33 +1508,30 @@ header .sidebar_cart .widget_shopping_cart_content .cart_list li a.remove {
 /* -- Login -- */
 .login_wrap {
     float: right;
-	margin: 40px 0 0 0;
-	background: transparent;
+    margin: 40px 0 0 0;
 }
 .top_panel_fixed .login_wrap {
-	margin: 15px 0 0 0;
-	background: transparent;
+    margin: 15px 0 0 0;
 }
 .login_wrap .popup_link {
-    background: transparent;
+    border: 2px solid #ffffff;
     display: inline-block;
     height: 38px;
     text-align: center;
     padding: 0 15px;
 	margin: 0 0 0 10px;
 	margin-top: 22px;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 38px;
     font-weight: 600;
     text-transform: uppercase;
     color: #ffffff;
-    /* letter-spacing: 1px; */
+    letter-spacing: 1px;
 }
 .login_wrap .popup_link:hover {
     /*border-color: rgba(255, 255, 255, 0.6);*/
     border-color: #ffffff;
-	color: #ffffff;
-	border : 3px solid #ffffff;
+    color: #63cac5;
 }
 
 /*hover*/
@@ -1569,9 +1564,9 @@ header .cart > .cart_button:hover:after {
 }
 .login_wrap .popup_link:hover:after,
 header .cart > .cart_button:hover:after {
-    
-background: transparent;
+    background-color: #ffffff;
 }
+
 
 /* User account */
 .user-popUp.account_wrap {
@@ -3805,7 +3800,7 @@ blockquote.sc_quote.style_2:before {
 }
 .widget_area .widget_calendar td {
 	font-size:0.875em
-	
+	padding:0;
 }
 .widget_area .widget_calendar .month_cur {
 	text-transform:uppercase;
@@ -4651,7 +4646,7 @@ table.picker__table tbody:last-child tr:last-child td {
     top:0;
     display: inline-block;
     text-align:center;
-    color: #000000;
+    color: #d2d2d2;
 }
 .picker__nav--prev:before {
     content: '\e847';
@@ -4692,14 +4687,14 @@ table.picker__table tbody:last-child tr:last-child td {
 .picker__weekday {
     width: 14.285714286%;
     font-size: 12px;
-    color: #000000;
+    color: #ffffff;
     font-weight: 600 !important;
     padding: 3px 0 !important;
     text-align: center;
     text-transform: uppercase;
 }
 .picker__day {
-    color: #000000;
+    color: #8b9094;
     font-size: 14px;
     font-weight: 300;
     margin: 1px 5px 0;
@@ -4707,7 +4702,7 @@ table.picker__table tbody:last-child tr:last-child td {
 }
 .picker__day--today {
     position: relative;
-    background: #000000;
+    background: #e8e8e8;
 }
 .picker__day--today:before {
     content: " ";
@@ -4720,10 +4715,10 @@ table.picker__table tbody:last-child tr:last-child td {
     border-left: 7px solid transparent !important;
 }
 .picker__day--disabled:before {
-    border-top-color: #000000;
+    border-top-color: #aaaaaa;
 }
 .picker__day--outfocus {
-    color: #000000;
+    color: #787878;
 }
 .picker__day--infocus:hover,
 .picker__day--outfocus:hover {
@@ -4738,22 +4733,22 @@ table.picker__table tbody:last-child tr:last-child td {
 .picker__day--selected,
 .picker__day--selected:hover,
 .picker--focused .picker__day--selected {
-    color: #000000;
+    color: #ffffff;
 }
 .picker__day--disabled,
 .picker__day--disabled:hover,
 .picker--focused .picker__day--disabled {
     background: none;
-    color: #000000;
+    color: #e6e8e8;
     cursor: default;
 }
 .picker__day--highlighted.picker__day--disabled,
 .picker__day--highlighted.picker__day--disabled:hover {
-    background: #000000;
+    background: #bbbbbb;
 }
 .picker__footer {
     text-align: center;
-    border-top: 1px solid #000000;
+    border-top: 1px solid #e5e7e8;
     margin-top: 4px;
     padding: 3px 0 6px;
 }
@@ -4764,7 +4759,7 @@ table.picker__table tbody:last-child tr:last-child td {
     background: transparent;
     font-size: 12px;
     font-style: italic;
-    color: #000000;
+    color: #c7c9ca;
     padding: 0;
     font-weight: 400;
     width: 33%;
@@ -5007,7 +5002,7 @@ table.picker__table tbody:last-child tr:last-child td {
 }
 
 .image_bg_7 {
-	background: url(../images/1.jpg) no-repeat center top #000000;
+	background: url(../images/12345.png) no-repeat center top #000000;
 }
 
 .image_bg_8 {

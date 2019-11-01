@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import camp.model.service.CampService;
-import camp.model.vo.Attachment;
 import camp.model.vo.CampInfo;
 import grade.model.service.GradeService;
 import grade.model.vo.UserGrade;
@@ -36,10 +35,8 @@ public class CampListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		ArrayList<CampInfo> cList = new CampService().selectList();
-		ArrayList<Attachment> aList = new CampService().selectAttachmentList();
-			
+		
 		request.setAttribute("cList", cList);
-		request.setAttribute("aList", aList);
 		
 		request.getRequestDispatcher("views/camp/campListView.jsp").forward(request, response);
 		

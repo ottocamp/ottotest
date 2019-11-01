@@ -199,8 +199,8 @@ pre.code,
 			border-radius: 4px;
 }
 
-::selection { color: rgb(0, 0, 0); background-color:#f15a23;}
-::-moz-selection { color: rgb(0, 0, 0); background-color:#f15a23;}
+::selection { color: #fff; background-color:#f15a23;}
+::-moz-selection { color: #fff; background-color:#f15a23;}
 
 
 
@@ -320,8 +320,8 @@ input[type="checkbox"]:checked + label:before {
 	padding-top:7px;
 }
 .menu_main_nav_area {
-	margin-top:60px;
-	margin-bottom: 62px;
+	margin-top:62px;
+	margin-bottom: 60px;
 	
 }
 .menu_left .menu_main_wrap .menu_main_nav_area,
@@ -726,8 +726,6 @@ input[type="checkbox"]:checked + label:before {
 
 .slider_engine_revo .rev_slider_wrapper > .rev_slider {
 	display: none;
-	margin-bottom: 500px;
-	
 }
 
 .mainslider_2 .tp-caption.trx-light-normal,
@@ -2021,12 +2019,8 @@ button,
 }
 계속보기 버튼 메인2-1 소망
 .sc_button.sc_button_style_filled1 {
-	font-size: 14px;
-    width: 50%;
-	height: 60px !important;
-    margin-bottom: 15px;
 	background-color: black;
-	border: 3px solid black;
+	 border: 3px solid black;
 	color: #ffffff;
 	border-color: #000000;
     color: #ffffff;
@@ -2043,16 +2037,16 @@ button:hover,
 
 }
 
-.sc_button.sc_button_style_filled.sc_button_bg_link {
-    border-color: #ffffff;
+/* .sc_button.sc_button_style_filled.sc_button_bg_link {
+    border-color: #63cac5;
     color: #ffffff;
-    background-color: #888888; 
+    background-color: #63cac5; */
 }
-.sc_button.sc_button_style_filled.sc_button_bg_link:hover {
-	border-color: #ffffff;
-    color: #ffffff;
-	background-color: #888888; 
-}
+/* .sc_button.sc_button_style_filled.sc_button_bg_link:hover {
+    border-color: #63cac5 !important;
+    color: #63cac5 !important;
+    background-color: #ffffff !important;
+} */
 
 .sc_button.sc_button_bg_user {
     border-color: #f5f7f7;
@@ -2066,14 +2060,14 @@ button:hover,
 }
 
 .sc_button.sc_button_style_filled.sc_button_bg_color {
-	border-color: #ccd0d1 !important;
-    color: #989ea1 !important;
-    background-color: #ffffff !important;
+    border-color: #f15a23;
+    color: #ffffff;
+    background-color: #f15a23;
 }
 .sc_button.sc_button_style_filled.sc_button_bg_color:hover {
-	border-color: #ccd0d1 !important;
-    color: #989ea1 !important;
-    background-color: #ffffff !important;
+    border-color: #63cac5 !important;
+    color: #ffffff !important;
+    background-color: #63cac5 !important;
 }
 
 
@@ -2850,13 +2844,13 @@ figure.sc_image .figcaption {
 /* picker */
 .picker__month,
 .picker__year {
-    color: #000000;
+    color: #63cac5;
 }
 .picker__wrap {
-    background: #000000;
+    background: #63cac5;
 }
 .picker__weekday {
-    background: black;
+    background: rgba(99, 202, 197, 0.6) !important;
 }
 .picker__day--infocus:hover,
 .picker__day--outfocus:hover,

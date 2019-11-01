@@ -37,7 +37,8 @@ public class ReservationListServlet extends HttpServlet {
 		request.setAttribute("rList", rList);
 		
 		request.getRequestDispatcher("views/reservation/reservationListView.jsp").forward(request, response);
-			
+		
+		
 		
 	}
 

@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import camp.model.service.CampService;
+import camp.model.vo.CampInfo;
+
 /**
  * Servlet implementation class InsertCampServlet
  */
@@ -39,13 +42,54 @@ public class InsertCampServlet extends HttpServlet {
 	      int campTheme = Integer.parseInt(request.getParameter("campTheme"));
 	      // 데이트 처리 물어보기 
 	      String availableDate = request.getParameter("availableDate");
-	      String postingYN = request.getParameter("");
+	      String posting = request.getParameter("posting");
 	      String refund = request.getParameter("refund");
 	      String suggestEtc = request.getParameter("suggest");
 	      
-	      System.out.println(availableDate);
+	   // checkbox와 같은 경우 배열로 받게 되므로 getParameterValues 이용
+	      String arr[] = request.getParameterValues("optional");
+	      
+	      String optional = "";
+	      if(arr != null) {
+	         optional = String.join(",", arr);
+	      }
+	      
+	      // 회원번호 저장
+//	      loginUser = (User)request.getSession().getAttribute("loginUser");
+//	      String userNo = String.valueOf(loginUser.getUserNo());
+	      
+	      CampInfo c = new CampInfo();
+	      
+	      c.setcName(campName);
+	      c.setcAddress(campAddress);
+	      c.setcPhone(campPhone);
+	      c.setcUrl(campUrl);
+	      c.setcTheme(campTheme);
+	      c.setcAvailableDate(availableDate);
+	      c.setcPosting(posting);
+	      c.setcRefundment(refund);
+	      c.setcEtc(suggestEtc);
+	      c.setcOperName(operatorName);
+	      c.setcOperNO(operatorNo);
+//	      c.setcUserNo(userNo);
+	     
+	      System.out.println(c);
+	      
+	      // 3-1. 캠프 insert용 서비스 메소드 전달하고 결과 받기
+	      int result = new CampService().insertCamp(c);
+	      
+	      
+	      // 4-1. 받은 결과에 따라 성공, 실패 페이지로 보내기
+	      if (result > 0 ) {
+	         request.getSession().setAttribute("msg", "캠핑장 등록 신청 완료");
+	         request.getRequestDispatcher("views/camp/campInsertView.jsp").forward(request, response);
+	      } else {
+	    	  request.setAttribute("msg", "캠핑장 등록 신청 실패");
+	    	  request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+	      }
+	      
+	   }
 
-	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
