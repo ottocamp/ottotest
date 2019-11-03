@@ -1,5 +1,3 @@
-/* Solaris skin for the theme
-------------------------------------------------------------------------- */
 
 /* TABLE OF CONTENTS:
 
@@ -53,6 +51,7 @@ h3 { font-size:2.143em;  font-weight:400; line-height: 1.15em; margin-top:0.625e
 h4 { font-size:1.286em;  font-weight:600; line-height: 1.3em; margin-top:1.16em;  margin-bottom: 0.4em; }		/* 18px */
 h5 { font-size:1.071em;  font-weight:400; line-height: 1.3em; margin-top:1.7em;    margin-bottom: 0.6em; }		/* 16px */
 h6 { font-size:1em;      font-weight:400; line-height: 1.31em; margin-top:1.8em;  margin-bottom: 0.6em; }		/* 14px */
+
 h1+h2,h1+h3,h1+h4,h1+h5,h1+h6,
 h2+h3,h2+h4,h2+h5,h2+h6,
 h3+h4,h3+h5,h3+h6,
@@ -199,8 +198,8 @@ pre.code,
 			border-radius: 4px;
 }
 
-::selection { color: #fff; background-color:#f15a23;}
-::-moz-selection { color: #fff; background-color:#f15a23;}
+::selection { color: rgb(0, 0, 0); background-color:#f15a23;}
+::-moz-selection { color: rgb(0, 0, 0); background-color:#f15a23;}
 
 
 
@@ -320,8 +319,8 @@ input[type="checkbox"]:checked + label:before {
 	padding-top:7px;
 }
 .menu_main_nav_area {
-	margin-top:62px;
-	margin-bottom: 60px;
+	margin-top:60px;
+	margin-bottom: 62px;
 	
 }
 .menu_left .menu_main_wrap .menu_main_nav_area,
@@ -335,7 +334,7 @@ input[type="checkbox"]:checked + label:before {
 }
 .top_panel_fixed .menu_main_wrap .menu_main_nav_area {
     margin-bottom: 0;
-    margin-top: 16px;
+    margin-top: 35px;
 }
 .top_panel_fixed .menu_main_wrap .logo {
 	margin-top:25px;
@@ -726,6 +725,8 @@ input[type="checkbox"]:checked + label:before {
 
 .slider_engine_revo .rev_slider_wrapper > .rev_slider {
 	display: none;
+	margin-bottom: 500px;
+	
 }
 
 .mainslider_2 .tp-caption.trx-light-normal,
@@ -814,7 +815,8 @@ input[type="checkbox"]:checked + label:before {
     background-image:url(../images/top_title_bg.png);
     background-position:center top;
     background-repeat:no-repeat;
-    background-size:cover;
+	background-size:cover;
+	
 }
 
 /* Page Title Desc */
@@ -907,7 +909,7 @@ input[type="checkbox"]:checked + label:before {
     color: #f15a23;
 }
 .hover_wrap .hover_link:hover:before {
-    box-shadow: 0 0 0 35px #f15a23 inset;
+    box-shadow: 0 0 0 35px black inset;
 }
 
 
@@ -994,14 +996,16 @@ input[type="checkbox"]:checked + label:before {
 
 /* Masonry and Portfolio */
 .isotope_wrap .isotope_item .post_title a {
-    color: #63cac5;
+	color: black;
+	font-size: 30px;
 }
 .isotope_wrap .isotope_item .post_title a:hover {
-    color: #1a1a1a;
+    color: grey;
 }
-.isotope_wrap .post_item .hover_wrap .hover_content .post_title a:hover {
-    color:  rgba(255, 255, 255, 0.6);
-}
+
+/* .isotope_wrap .post_item .hover_wrap .hover_content .post_title a:hover {
+    color: blue;
+} */
 .isotope_item .tags_info a:hover {
     color: #f15a23;
 }
@@ -2019,8 +2023,12 @@ button,
 }
 계속보기 버튼 메인2-1 소망
 .sc_button.sc_button_style_filled1 {
+	font-size: 14px;
+    width: 50%;
+	height: 60px !important;
+    margin-bottom: 15px;
 	background-color: black;
-	 border: 3px solid black;
+	border: 3px solid black;
 	color: #ffffff;
 	border-color: #000000;
     color: #ffffff;
@@ -2037,16 +2045,16 @@ button:hover,
 
 }
 
-/* .sc_button.sc_button_style_filled.sc_button_bg_link {
-    border-color: #63cac5;
+.sc_button.sc_button_style_filled.sc_button_bg_link {
+    border-color: #ffffff;
     color: #ffffff;
-    background-color: #63cac5; */
+    background-color: #888888; 
 }
-/* .sc_button.sc_button_style_filled.sc_button_bg_link:hover {
-    border-color: #63cac5 !important;
-    color: #63cac5 !important;
-    background-color: #ffffff !important;
-} */
+.sc_button.sc_button_style_filled.sc_button_bg_link:hover {
+	border-color: #ffffff;
+    color: #ffffff;
+	background-color: #888888; 
+}
 
 .sc_button.sc_button_bg_user {
     border-color: #f5f7f7;
@@ -2060,14 +2068,14 @@ button:hover,
 }
 
 .sc_button.sc_button_style_filled.sc_button_bg_color {
-    border-color: #f15a23;
-    color: #ffffff;
-    background-color: #f15a23;
+	border-color: #ccd0d1 !important;
+    color: #989ea1 !important;
+    background-color: #ffffff !important;
 }
 .sc_button.sc_button_style_filled.sc_button_bg_color:hover {
-    border-color: #63cac5 !important;
-    color: #ffffff !important;
-    background-color: #63cac5 !important;
+     border-color: #ccd0d1 !important;
+    color: #989ea1 !important;
+    background-color: #ffffff !important;
 }
 
 
@@ -2502,7 +2510,7 @@ figure,
 			border-radius: 0;
 }
 figure figcaption,
-.sc_image figcaption.
+.sc_image figcaption
 .sc_image .figcaption {
 	font-size: 1.5em;
 }
@@ -2844,13 +2852,13 @@ figure.sc_image .figcaption {
 /* picker */
 .picker__month,
 .picker__year {
-    color: #63cac5;
+    color: #000000;
 }
 .picker__wrap {
-    background: #63cac5;
+    background: #000000;
 }
 .picker__weekday {
-    background: rgba(99, 202, 197, 0.6) !important;
+    background: black;
 }
 .picker__day--infocus:hover,
 .picker__day--outfocus:hover,

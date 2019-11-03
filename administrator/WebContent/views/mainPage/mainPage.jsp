@@ -15,7 +15,7 @@
         <meta content="Coderthemes" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
    
-   <link rel='stylesheet' href='<%= request.getContextPath() %>/resources/main/custom_tools/css/front.customizer.css' type='text/css' media='all' />
+   <link rel='stylesheet' href='<%= request.getContextPath() %>/resources/Amain/custom_tools/css/front.customizer.css' type='text/css' media='all' />
 
    <link rel='stylesheet' href='<%= request.getContextPath() %>/resources/main/js/vendor/magnific/magnific-popup.css' type='text/css' media='all' />
    <link rel='stylesheet' href='<%= request.getContextPath() %>/resources/main/js/vendor/swiper/idangerous.swiper.css' type='text/css' media='all' />
@@ -99,6 +99,12 @@
                               <form name="registration_form" method="post" class="popup_form registration_form">
                                  <input type="hidden" name="redirect_to" value="#"/>
                                  <div class="form_left">
+                                        <div class="icon popup_form_field login_field iconed_field icon-user-3">
+                                                <input type="text" id="registration_username" name="registration_username"  value="" placeholder="이름입력">
+                                             </div>
+                                             <div class="icon popup_form_field login_field iconed_field icon-user-3">
+                                                <input type="text" id="registration_username" name="registration_username"  value="" placeholder="생년월일">
+                                             </div>
                                     <div class="icon popup_form_field login_field iconed_field icon-user-3">
                                        <input type="text" id="registration_username" name="registration_username"  value="" placeholder="아이디입력">
                                     </div>
@@ -124,7 +130,9 @@
                                     <div class="popup_form_field description_field">최소6글자이상입력해주세요</div>
                                  </div>
                               </form>
+                              
                               <div class="result messageBlock"></div>
+
                            </div>
                         </div>
                      </div>
@@ -163,7 +171,7 @@
                               </ul>
 
                               <li class="menu-item menu-item-has-children">
-                                 <a href="<%= request.getContextPath() %>/views/user/userMain.jsp">마이페이지</a>
+                                 <a href="#">마이페이지</a>
                                  <ul class="sub-menu">
                                     <li class="menu-item">
                                        <a href="">개인정보수정</a>
@@ -195,7 +203,7 @@
                                            </li>                                 
                                            </ul>
                                     <li class="menu-item menu-item-has-children">
-                                       <a href="<%= request.getContextPath() %>/views/reservation/reservationListView">관리자페이지</a>
+                                       <a href="#">관리자페이지</a>
                                        <ul class="sub-menu">
                                           <li class="menu-item">
                                              <a href="">매출내역</a>
@@ -213,24 +221,29 @@
                                              <a href="">예약관리</a>
                                           </li>   
                                              </ul>
+											</ul>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
                                         
                   </nav>
                </div>
             </div>
          </header>
-
-         <section id="mainslider_1" class="slider_wrap slider_fullscreen slider_engine_revo slider_alias_main mainslider_1">
+ <section id="mainslider_1" class="slider_wrap slider_fullscreen slider_engine_revo slider_alias_main mainslider_1">
             <div id="rev_slider_4_1_wrapper" class="rev_slider_wrapper fullscreen-container">
                <div id="rev_slider_4_1" class="rev_slider fullscreenbanner">
                   <ul>
                      <li data-transition="slotfade-horizontal" data-slotamount="7" data-masterspeed="300"  data-saveperformance="off" >
-                        <img src="https://cdn.pixabay.com/photo/2016/02/09/16/35/night-1189929_1280.jpg"  alt="slider_1"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+                         <img src="<%= request.getContextPath() %>/resources/main/images/1.jpg" alt="slider_1"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
                      </li>
                      <li data-transition="slotfade-horizontal" data-slotamount="7" data-masterspeed="300"  data-saveperformance="off" >
-                        <img src="https://cdn.pixabay.com/photo/2015/10/12/14/58/camping-984038_1280.jpg"  alt="slider_2"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+                       <img src="<%= request.getContextPath() %>/resources/main/images/2.jpg" alt="slider_2"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
                      </li>
                      <li data-transition="slotfade-horizontal" data-slotamount="7" data-masterspeed="300"  data-saveperformance="off" >
-                        <img src="https://cdn.pixabay.com/photo/2017/08/16/10/44/teepee-2647263_1280.jpg"  alt="slider_3"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+                       <img src="<%= request.getContextPath() %>/resources/main/images/3.jpg"  alt="slider_3"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
                      </li>
                   </ul>
                   <div class="tp-static-layers">
@@ -248,7 +261,7 @@
                         data-endelementdelay="0.1"
                         data-endspeed="300"
 						>
-					
+			
                         <div class="sc_contact_form sc_contact_form_order aligncenter">
                            <form data-formtype="order" method="post" action="#">
 							  
@@ -271,7 +284,7 @@
                               
                                  <select id="destinations" class="destinations" name="criteria">
                                     <option value="" disabled selected>도착지</option>
-                                    <option value="경기도">경기도</option>
+                                    <option value="경기도">서울,경기도</option>
                                     <option value="강원도">강원도</option>
                                     <option value="충청도">충청도</option>
                                     <option value="전라도">전라도</option>
@@ -302,7 +315,7 @@
 									
                                  
 								 <div class="result sc_infobox"></div>
-								 <a href="main2-1.html"></a>
+								 <!-- <a href="main_jjin_1.html"></a> -->
                               </div>
                            </form>
                         </div>
@@ -328,7 +341,7 @@
    <script type='text/javascript' src='<%= request.getContextPath() %>/resources/main/js/custom/core.init.min.js'></script>
    <script type='text/javascript' src='<%= request.getContextPath() %>/resources/main/js/custom/shortcodes.min.js'></script>
 
-   <script type='text/javascript' src='<%= request.getContextPath() %>/resources/main/js/custom/_main.js'></script>
+   <script type='text/javascript' src='<%= request.getContextPath() %>/resources/js/custom/_main.js'></script>
 
    <!--<script type='text/javascript' src='custom_tools/js/front.customizer.js'></script>-->
    <!--<script type='text/javascript' src='custom_tools/js/skin.customizer.js'></script>-->

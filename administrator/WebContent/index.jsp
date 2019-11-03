@@ -7,7 +7,8 @@
 <title></title>
 </head>
 <body>
-	<%@ include file="views/mainPage/mainPage.jsp" %>	
+	<%@ include file="views/mainPage/mainPage.jsp" %>
+	
 
 </body>
 </html>
